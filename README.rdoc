@@ -1,0 +1,3 @@
+== Resurface
+
+A front-end interface for the SQUID platform
