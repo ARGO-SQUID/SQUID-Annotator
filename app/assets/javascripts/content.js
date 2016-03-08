@@ -17,7 +17,8 @@ content = {
     var locationHtml = Mustache.to_html($('#location-info-template').html(), location)
     $('#map-header-inner-middle').html(locationHtml)
     mapInitializer.setSelectedLocationMarker(location.id)
-    //move image carousel to this location
+    $('.street-location-carousel .location-img').removeClass('active')
+    $('.street-location-carousel .location-img[data-id=' + location.id + ']').addClass('active')
   }
 
 }
