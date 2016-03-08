@@ -5,9 +5,10 @@ content = {
     $('#map-header-inner-top').html(streetHtml)
 
     initialLocation = street.locations[0]
+    restOfLocations = _.reject(street.locations, function(l) { return l == initialLocation; });
 
     var carouselHtml = Mustache.to_html($('#street-carousel-template').html(),
-                                          {locations: street.locations, initial: initialLocation})
+                        {locations: restOfLocations, initialLocation: initialLocation, initialLocationId: initialLocation.id})
     $('#map-header-inner-bottom').html(carouselHtml)
     content.setLocation(initialLocation)
   },

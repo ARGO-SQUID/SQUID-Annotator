@@ -28,9 +28,12 @@
 </script>
 
 <script id="street-carousel-template" type="x-tmpl-mustache">
-  <div class="street-location-carousel" data-current="{{}}">
+  <div class="street-location-carousel" data-current="{{initialLocationId}}">
+    {{#initialLocation}}
+      <img src="{{image}}" data-id="{{id}}" class="location-img active">
+    {{/initialLocation}}
     {{#locations}}
-      <img src="{{image}}">
+      <img src="{{image}}" data-id="{{id}}" class="location-img">
     {{/locations}}
   </div>
 </script>
