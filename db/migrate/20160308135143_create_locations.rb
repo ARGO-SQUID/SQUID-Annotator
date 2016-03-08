@@ -5,6 +5,7 @@ class CreateLocations < ActiveRecord::Migration
       t.float :lat
       t.float :long
       t.string :image
+      t.integer :order
       t.timestamps null: false
     end
   end

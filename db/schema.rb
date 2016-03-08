@@ -24,6 +24,7 @@ ActiveRecord::Schema.define(version: 20160308135148) do
     t.float    "lat"
     t.float    "long"
     t.string   "image"
+    t.integer  "order"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

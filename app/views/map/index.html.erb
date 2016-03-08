@@ -2,5 +2,35 @@
 
   <div id="map-canvas"></div>
 
+  <div id="map-header">
+    <div id="map-header-inner">
 
+      <div id="map-header-inner-top"></div>
+      <div id="map-header-inner-middle"></div>
+      <div id="map-header-inner-bottom"></div>
+
+    </div>
+  </div>
 </div>
+
+
+<script id="street-info-template" type="x-tmpl-mustache">
+  <div class="street">
+    <h2 id="street-name">{{street_name}}</h2>
+    <h3 id="street-bounds">Between {{bound_one}} & {{bound_two}}</h3>
+  </div>
+</script>
+
+<script id="location-info-template" type="x-tmpl-mustache">
+  <div class="location">
+    <h2 id="location-name">{{lat}}, {{long}}</h2>
+  </div>
+</script>
+
+<script id="street-carousel-template" type="x-tmpl-mustache">
+  <div class="street-location-carousel" data-current="{{}}">
+    {{#locations}}
+      <img src="{{image}}">
+    {{/locations}}
+  </div>
+</script>

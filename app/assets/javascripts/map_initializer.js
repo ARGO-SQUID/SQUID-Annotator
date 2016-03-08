@@ -4,7 +4,7 @@ mapInitializer = {
   init: function() {
     var mapOptions =  {
       center: new google.maps.LatLng(43.045979, -76.148841),
-      zoom: 12,
+      zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
       styles: mapInitializer.styles,
@@ -19,12 +19,72 @@ mapInitializer = {
         style: google.maps.ZoomControlStyle.SMALL,
         position: google.maps.ControlPosition.LEFT_CENTER
       }
-
-
     }
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-    // mapInitializer.setZoomListeners()
-    // mapInitializer.initializeDummyMarkers()
-    // mapInitializer.initializeMarkers()
+    mapInitializer.initializeStreets()
+  },
+
+  initializeStreets: function(){
+    selectedStreet = null, selectedStreetLocationMarkers = null
+    $.get("/api/v1/streets", function( data ) {
+      allStreets = _.map(data, function(street){
+        return mapInitializer.initializeStreet(street)
+      });
+    });
+  },
+
+  initializeStreet: function(streetData){
+    var streetCoordinates = _.map(streetData['locations'], function(location){
+      return {lat: location['lat'], lng: location['long']}
+    });
+
+    var streetPath = new google.maps.Polyline({
+      path: streetCoordinates,
+      geodesic: true,
+      strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 5,
+      locations: streetData['locations'],
+      street_name: streetData['street_name'],
+      bound_one: streetData['bound_one'],
+      bound_two: streetData['bound_two']
+    });
+
+    streetPath.setMap(map);
+    mapInitializer.setStreetClickListener(streetPath)
+
+    return streetPath
+  },
+
+  setStreetClickListener: function(streetPath){
+    google.maps.event.addListener(streetPath, 'click', function () {
+      mapInitializer.initializeSelectedStreet(streetPath)
+    });
+  },
+
+  clearSelectedStreet: function(){
+    selectedStreet = null
+    if(selectedStreetLocationMarkers){
+      _.each(selectedStreetLocationMarkers, function(marker){
+        marker.setMap(null)
+      })
+    }
+  },
+
+  initializeSelectedStreet: function(streetPath){
+    mapInitializer.clearSelectedStreet();
+    selectedStreet = streetPath
+    selectedStreetLocationMarkers = _.map(streetPath.locations, function(location){
+      return mapInitializer.initStreetLocationMarker(location)
+    })
+    content.initializeForStreet(streetPath)
+  },
+
+  initStreetLocationMarker: function(location){
+    marker = new google.maps.Marker({
+      position: new google.maps.LatLng(location.lat , location.long),
+      map: map,
+      id: location.id,
+      location: location
+    });
+    return marker
   }
 }
