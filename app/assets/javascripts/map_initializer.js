@@ -27,7 +27,7 @@ mapInitializer = {
   },
 
   initializeStreets: function(){
-    selectedStreet = null, selectedStreetLocationMarkers = null
+    selectedStreet = null, selectedStreetLocationMarkers = null, selectedLocationMarker = null
     $.get("/api/v1/streets", function( data ) {
       allStreets = _.map(data, function(street){
         return mapInitializer.initializeStreet(street)
@@ -71,7 +71,22 @@ mapInitializer = {
     }
   },
 
+  setSelectedLocationMarker: function(locationId){
+    if(selectedLocationMarker){
+      selectedLocationMarker.setIcon(mapInitializer.pinImage())
+      selectedLocationMarker = null
+    }
+    var locationMarker = _.find(selectedStreetLocationMarkers, function(marker){
+      return marker.id == locationId;
+    });
+    selectedLocationMarker = locationMarker
+    selectedLocationMarker.setIcon(mapInitializer.inversePinImage())
+  },
+
   initializeSelectedStreet: function(streetPath){
+    if(selectedStreet == streetPath){
+      return
+    }
     mapInitializer.clearSelectedStreet();
     selectedStreet = streetPath
     selectedStreetLocationMarkers = _.map(streetPath.locations, function(location){
@@ -102,6 +117,13 @@ mapInitializer = {
       location: location,
       icon: mapInitializer.pinImage()
     });
+    mapInitializer.setLocationMarkerListener(marker)
     return marker
+  },
+
+  setLocationMarkerListener: function(locationMarker){
+    google.maps.event.addListener(locationMarker, 'click', function () {
+      content.setLocation(locationMarker.location)
+    });
   }
 }

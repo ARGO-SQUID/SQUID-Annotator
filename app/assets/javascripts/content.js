@@ -9,13 +9,13 @@ content = {
     var carouselHtml = Mustache.to_html($('#street-carousel-template').html(),
                                           {locations: street.locations, initial: initialLocation})
     $('#map-header-inner-bottom').html(carouselHtml)
-
     content.setLocation(initialLocation)
   },
 
   setLocation: function(location){
     var locationHtml = Mustache.to_html($('#location-info-template').html(), location)
     $('#map-header-inner-middle').html(locationHtml)
+    mapInitializer.setSelectedLocationMarker(location.id)
     //move image carousel to this location
   }
 
