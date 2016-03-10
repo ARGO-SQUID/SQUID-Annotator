@@ -24,6 +24,7 @@ mapInitializer = {
     }
     map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
     mapInitializer.initializeStreets()
+    mapInteraction.recordZoomAndCenter()
   },
 
   initializeStreets: function(){
@@ -68,6 +69,10 @@ mapInitializer = {
       _.each(selectedStreetLocationMarkers, function(marker){
         marker.setMap(null)
       })
+      selectedStreetLocationMarkers = null
+    }
+    if(selectedLocationMarker){
+      selectedLocationMarker = null
     }
   },
 
@@ -76,9 +81,7 @@ mapInitializer = {
       selectedLocationMarker.setIcon(mapInitializer.pinImage())
       selectedLocationMarker = null
     }
-    var locationMarker = _.find(selectedStreetLocationMarkers, function(marker){
-      return marker.id == locationId;
-    });
+    var locationMarker = mapInitializer.findLocationMarkerById(locationId)
     selectedLocationMarker = locationMarker
     selectedLocationMarker.setIcon(mapInitializer.inversePinImage())
   },
@@ -92,7 +95,7 @@ mapInitializer = {
     selectedStreetLocationMarkers = _.map(streetPath.locations, function(location){
       return mapInitializer.initStreetLocationMarker(location)
     })
-    content.initializeForStreet(streetPath)
+    streetView.initializeForStreet(streetPath)
   },
 
   pinImage: function(){
@@ -123,7 +126,13 @@ mapInitializer = {
 
   setLocationMarkerListener: function(locationMarker){
     google.maps.event.addListener(locationMarker, 'click', function () {
-      content.setLocation(locationMarker.location)
+      streetView.setLocation(locationMarker.location)
+    });
+  },
+
+  findLocationMarkerById: function(id){
+    return _.find(selectedStreetLocationMarkers, function(marker){
+      return marker.id == id;
     });
   }
 }

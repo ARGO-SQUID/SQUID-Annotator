@@ -2,39 +2,29 @@
 
   <div id="map-canvas"></div>
 
-  <div id="map-header">
-    <div id="map-header-inner">
+  <div id="street-view-container">
+    <div id="street-view-inner">
+      <div id="street-view-inner-top">
+        <a href="#" id="close-street-view">&times;</a>
+        <div id="street-data"></div>
+        <div id="location-data"></div>
+      </div>
 
-      <div id="map-header-inner-top"></div>
-      <div id="map-header-inner-middle"></div>
-      <div id="map-header-inner-bottom"></div>
+      <div id="street-view-inner-bottom">
+        <a href="#" id="carousel-left">L</a>
+        <a href="#" id="carousel-right">R</a>
+
+        <div id="street-carousel-container">
+
+        </div>
+
+        <a href="#" id="launch-annotate">Annotate</a>
+
+      </div>
 
     </div>
   </div>
+
 </div>
 
-
-<script id="street-info-template" type="x-tmpl-mustache">
-  <div class="street">
-    <h2 id="street-name">{{street_name}}</h2>
-    <h3 id="street-bounds">Between {{bound_one}} & {{bound_two}}</h3>
-  </div>
-</script>
-
-<script id="location-info-template" type="x-tmpl-mustache">
-  <div class="location">
-    <h2 id="location-name">{{lat}}, {{long}}</h2>
-  </div>
-</script>
-
-<script id="street-carousel-template" type="x-tmpl-mustache">
-  <div class="street-location-carousel" data-current="{{initialLocationId}}">
-  
-    {{#initialLocation}}
-      <img src="{{image}}" data-id="{{id}}" class="location-img active">
-    {{/initialLocation}}
-    {{#locations}}
-      <img src="{{image}}" data-id="{{id}}" class="location-img">
-    {{/locations}}
-  </div>
-</script>
+<%= render partial: "mustache_templates" %>

@@ -1,0 +1,18 @@
+<script id="street-info-template" type="x-tmpl-mustache">
+  <h2 id="street-name">{{street_name}} (b/w {{bound_one}} & {{bound_two}}</h2>
+</script>
+
+<script id="location-info-template" type="x-tmpl-mustache">
+  <h2 id="location-ll">{{lat}}, {{long}}</h2>
+</script>
+
+<script id="street-carousel-template" type="x-tmpl-mustache">
+  <div class="street-location-carousel" data-current="{{initialLocationId}}">
+    {{#initialLocation}}
+      <img src="{{image}}" data-id="{{id}}" class="location-img active">
+    {{/initialLocation}}
+    {{#locations}}
+      <img src="{{image}}" data-id="{{id}}" class="location-img">
+    {{/locations}}
+  </div>
+</script>

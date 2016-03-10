@@ -5,40 +5,30 @@ body {margin: 0; padding: 0;}
 h1,h2,h3, input, p, textarea {font-family: 'Arimo', sans-serif;}
 
 #map-container {
-  width: 100%; height: 700px; position: relative;
+  width: 100%; height:100%; position: relative;
   border-top: 1px solid #D1D1D1; border-bottom: 1px solid #D1D1D1;
 
   #map-canvas {
-    width: 72%; height: 100%;
-    left: 28%; top: 0;
+    width: 100%; height: 100%;
+    left: 0; top: 0;
     border-left: 1px solid black;
   }
-  #map-header {
-    width: 28%;
-    position: absolute; top: 0px; left: 0px; height: 100%;  background-color: white;
-    border-right: 1px solid #D1D1D1
+  #street-view-container {
+    width: 100%; height: 0%;
+    position: absolute; bottom: 0px; left: 0px;  background-color: white;
+    border-right: 1px solid #D1D1D1; overflow: hidden;
   }
+}
 
-  .street-location-carousel{
-    position:relative;
-    height:200px; width:300px;
-    margin:0 auto 10px;
-    img {
-      position:absolute;
-      left:0;
-      -webkit-transition: opacity 1s ease-in-out;
-      -moz-transition: opacity 1s ease-in-out;
-      -o-transition: opacity 1s ease-in-out;
-      transition: opacity 1s ease-in-out;
-      opacity:0;
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
-      filter: alpha(opacity=0);
-      width: 100%; height: 100%;
-    }
-    img.active {
-      opacity:1;
-      -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-      filter: alpha(opacity=1);
-    }
+#map-container.street-view-on {
+  #map-canvas {
+    height: 50%;
+    -webkit-transition: height .2s, -webkit-transform .2s;
+    transition: height .2s, transform .2s;
+  }
+  #street-view-container {
+    height: 50%; border-top: 1px solid black;
+    -webkit-transition: height .2s, -webkit-transform .2s;
+    transition: height .2s, transform .2s;
   }
 }

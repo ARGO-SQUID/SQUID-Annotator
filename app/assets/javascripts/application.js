@@ -18,4 +18,6 @@
 
 $(document).ready(function() {
   mapInitializer.init()
+  streetView.init()
+  // mapInteraction.init()
 })
