@@ -30,12 +30,13 @@
     #launch-annotate {
       position: absolute; bottom: 20px; left: 50%;
     }
-    #carousel-left {
-      position: absolute; top: 40%; left: 5%;
+    .carousel-arrow{
+      position: absolute; top: 40%; color: black;
+      text-decoration: none; font-size: 40px;
     }
-    #carousel-right {
-      position: absolute; top: 40%; right: 5%;
-    }
+    #carousel-left { left: 5%;}
+    #carousel-right { right: 5%;}
+
     .street-location-carousel{
       position:relative;
       height: 100%; width: 100%;

@@ -6,7 +6,7 @@ streetView = {
 
   setStreetClickListeners: function(){
     $('#launch-annotate').click(function(){
-      alert('gg')
+      annotate.launchForLocation(selectedLocationMarker.location)
     })
 
     $('#carousel-left').click(function(){

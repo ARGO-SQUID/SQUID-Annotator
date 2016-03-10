@@ -19,5 +19,6 @@
 $(document).ready(function() {
   mapInitializer.init()
   streetView.init()
+  annotate.init()
   // mapInteraction.init()
 })

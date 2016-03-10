@@ -17,4 +17,4 @@ s1.locations.create(lat: 43.044300, long: -76.146280, order: 3,
 s1.locations.create(lat: 43.044300, long: -76.144280, order: 4,
                     image: "https://www.petfinder.com/wp-content/uploads/2012/11/99233806-bringing-home-new-cat-632x475.jpg")
 s1.locations.create(lat: 43.044300, long: -76.142280, order: 5,
-                    image: "http://animaliaz-life.com/image.php?pic=/data_images/cat/cat4.jpg")
+                    image: "http://mcdaniel.hu/wp-content/uploads/2015/01/6784063-cute-cats-hd.jpg")
