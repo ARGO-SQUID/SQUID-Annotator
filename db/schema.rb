@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160308135148) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "annotations", force: :cascade do |t|
     t.integer  "location_id"
     t.datetime "created_at",  null: false
