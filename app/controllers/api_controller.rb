@@ -7,11 +7,11 @@ class ApiController < ApplicationController
 
   def ensure_origin_whitelisted
     # ##TODO FIX THIS
-    
+
     # return if Rails.env == "development"
-    # logger.debug("**"*88)
-    # logger.debug(request.env["HTTP_ORIGIN"])
-    # logger.debug("**"*88)
+    logger.debug("**"*88)
+    logger.debug(request.env["HTTP_ORIGIN"])
+    logger.debug("**"*88)
     #
     # unless WHITELIST.include?(request.env["HTTP_ORIGIN"])
     #   head :unauthorized
