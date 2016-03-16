@@ -20,11 +20,9 @@ streetView = {
     })
 
     $('#close-street-view').click(function(){
-      streetView.removeStreetView()
-      mapInitializer.clearSelectedStreet()
+      streetView.closeStreetView()
       return false
     })
-
   },
 
   moveToStreetView: function(){
@@ -95,5 +93,14 @@ streetView = {
     }
     prevMarker = mapInitializer.findLocationMarkerById(prevId)
     streetView.setLocation(prevMarker.location)
+  },
+
+  inStreetViewMode: function(){
+    return $('#map-container').hasClass('street-view-on')
+  },
+
+  closeStreetView: function(){
+    streetView.removeStreetView()
+    mapInitializer.clearSelectedStreet()
   }
 }

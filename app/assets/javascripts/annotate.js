@@ -2,9 +2,13 @@ annotate = {
 
   init: function(){
     $('#close-annotation').click(function(){
-      $('#annotation-view-container').removeClass('active')
-      $('#annotation-view-container #inner-annotation-container').html("")
+      annotate.closeAnnotationView()
     })
+  },
+
+  closeAnnotationView: function(){
+    $('#annotation-view-container').removeClass('active')
+    $('#annotation-view-container #inner-annotation-container').html("")
   },
 
   launchForLocation: function(location){
@@ -13,4 +17,7 @@ annotate = {
     $('#annotation-view-container #inner-annotation-container').html(annotateHtml)
   },
 
+  annotationViewMode: function(){
+    return $('#annotation-view-container').hasClass('active')
+  }
 }
