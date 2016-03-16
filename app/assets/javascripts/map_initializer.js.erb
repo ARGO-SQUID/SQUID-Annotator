@@ -4,7 +4,7 @@ mapInitializer = {
   init: function() {
 
     var mapOptions =  {
-      center: new google.maps.LatLng(43.045979, -76.148841),
+      center: new google.maps.LatLng(40.746851, -74.031932),
       zoom: 16,
       mapTypeId: google.maps.MapTypeId.ROADMAP,
       mapTypeControl: false,
@@ -45,9 +45,7 @@ mapInitializer = {
       geodesic: true,
       strokeColor: '#FF0000', strokeOpacity: 1.0, strokeWeight: 5,
       locations: streetData['locations'],
-      street_name: streetData['street_name'],
-      bound_one: streetData['bound_one'],
-      bound_two: streetData['bound_two']
+      street_name: streetData['street_name']
     });
 
     streetPath.setMap(map);

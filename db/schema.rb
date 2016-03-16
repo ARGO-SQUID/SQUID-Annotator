@@ -28,20 +28,17 @@ ActiveRecord::Schema.define(version: 20160308135148) do
     t.float    "long"
     t.string   "image"
     t.integer  "order"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.float    "bumpiness"
+    t.string   "reading_device_id"
+    t.datetime "reading_timestamp"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
   create_table "streets", force: :cascade do |t|
     t.string   "street_name"
-    t.string   "bound_one"
-    t.float    "bound_one_lat"
-    t.float    "bound_one_long"
-    t.string   "bound_two"
-    t.float    "bound_two_lat"
-    t.float    "bound_two_long"
-    t.datetime "created_at",     null: false
-    t.datetime "updated_at",     null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end
