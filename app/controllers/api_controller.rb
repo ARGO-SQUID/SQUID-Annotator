@@ -16,6 +16,8 @@ class ApiController < ApplicationController
     logger.debug("**"*88)
     logger.debug(request.headers['origin'])
     logger.debug("**"*88)
+    logger.debug(request.referrer)
+    logger.debug("**"*88)
 
     #
     # unless WHITELIST.include?(request.env["HTTP_ORIGIN"])
