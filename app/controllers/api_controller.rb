@@ -6,23 +6,10 @@ class ApiController < ApplicationController
   skip_before_action :user_basic_auth
 
   def ensure_origin_whitelisted
-    # ##TODO FIX THIS
-
-    # return if Rails.env == "development"
-    logger.debug("**"*88)
-    logger.debug(request.env["HTTP_ORIGIN"].inspect)
-    logger.debug("**"*88)
-    logger.debug(request.inspect)
-    logger.debug("**"*88)
-    logger.debug(request.headers['origin'])
-    logger.debug("**"*88)
-    logger.debug(request.referrer)
-    logger.debug("**"*88)
-
-    #
-    # unless WHITELIST.include?(request.env["HTTP_ORIGIN"])
-    #   head :unauthorized
-    # end
+    return if Rails.env == "development"
+    unless WHITELIST.include?(request.referrer)
+      head :unauthorized
+    end
   end
 
 end
