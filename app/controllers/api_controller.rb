@@ -10,7 +10,9 @@ class ApiController < ApplicationController
 
     # return if Rails.env == "development"
     logger.debug("**"*88)
-    logger.debug(request.env["HTTP_ORIGIN"])
+    logger.debug(request.env["HTTP_ORIGIN"].inspect)
+    logger.debug("**"*88)
+    logger.debug(request.inspect)
     logger.debug("**"*88)
     #
     # unless WHITELIST.include?(request.env["HTTP_ORIGIN"])
