@@ -8,7 +8,7 @@ end
 
 data.group_by{|s|s["street_name"]}.each do |street_name, street_locations|
   s = Street.create(street_name: street_name)
-  locs = street_locations.reverse
+  locs = street_locations.sort_by{|l| ['reading_timestamp']}
   locs.each_with_index do |location, index|
     s.locations.create(lat: location['lat'],
                        long: location['long'],
