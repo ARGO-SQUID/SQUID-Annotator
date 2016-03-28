@@ -15,6 +15,12 @@
 //= require turbolinks
 //= require_tree .
 
+<% if Rails.env == 'development' %>
+  apiHost = "http://localhost:3000/"
+<% else %>
+  apiHost = ""
+<% end %>
+
 
 $(document).ready(function() {
   mapInitializer.init()

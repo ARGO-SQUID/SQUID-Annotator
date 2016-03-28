@@ -1989,12 +1989,13 @@ function $annotorious$shape$hashCode$$($shape$$6$$) {
   return JSON.stringify($shape$$6$$.geometry)
 }
 //RESURFACE ADDITION
-;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $category$$44$$, $shape$$7$$) {
+;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $category$$44$$, $locationId$$55$$, $shape$$7$$) {
   this.src = $src$$21$$;
   this.text = $text$$10$$;
   this.shapes = [$shape$$7$$];
   this.context = document.URL
   this.category = $category$$44$$
+  this.locationId = $locationId$$55$$
 }
 ;function $annotorious$mediatypes$Module$$() {
 }
@@ -3279,6 +3280,9 @@ $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAl
   var radioForm = document.getElementById("annotation-category");
   $htmlText$$annotationCategory$$ = radioForm.elements["a-category"].value
 
+  //RESURFACE ADDITION: add locationId to annotation
+  $htmlText$$locationId$$  = $('#annotate-image-container').attr('data-location-id')
+
   var $stringBuffer$$inline_716$$ = new $goog$string$StringBuffer$$;
   (new $goog$string$html$HtmlParser$$).parse(new $goog$string$html$HtmlSanitizer$$($stringBuffer$$inline_716$$, function($url$$22$$) {
     return $url$$22$$
@@ -3288,10 +3292,11 @@ $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAl
   if(this.$_current_annotation$){
     this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$
     this.$_current_annotation$.category = $htmlText$$annotationCategory$$
+    this.$_current_annotation$.locationId = $htmlText$$locationId$$
   }
   else{
-    alert('its a new annotatation!')
-    this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, $htmlText$$annotationCategory$$, this.$_annotator$.$getActiveSelector$().getShape());
+    this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, $htmlText$$annotationCategory$$, $htmlText$$locationId$$, this.$_annotator$.$getActiveSelector$().getShape());
+    annotate.createAnnotation(this.$_current_annotation$)
   }
   console.log(this.$_current_annotation$)
   return this.$_current_annotation$

@@ -18,6 +18,14 @@ ActiveRecord::Schema.define(version: 20160308135148) do
 
   create_table "annotations", force: :cascade do |t|
     t.integer  "location_id"
+    t.text     "text"
+    t.text     "image_url"
+    t.string   "category"
+    t.float    "height"
+    t.float    "width"
+    t.float    "x"
+    t.float    "y"
+    t.string   "shape"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
