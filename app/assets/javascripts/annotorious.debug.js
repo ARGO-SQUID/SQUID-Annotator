@@ -3293,6 +3293,7 @@ $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAl
     this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$
     this.$_current_annotation$.category = $htmlText$$annotationCategory$$
     this.$_current_annotation$.locationId = $htmlText$$locationId$$
+    annotate.updateAnnotation(this.$_current_annotation$)
   }
   else{
     this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, $htmlText$$annotationCategory$$, $htmlText$$locationId$$, this.$_annotator$.$getActiveSelector$().getShape());

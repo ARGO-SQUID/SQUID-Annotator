@@ -28,6 +28,7 @@ annotate = {
     $.get(apiHost + "/api/v1/locations/" + location.id + "/annotations", function( data ) {
       _.each(data, function(annotation){
         oneAnnotation = {
+          annotationId: annotation.id,
           src : annotation.image_url,
           locationId: annotation.location_id,
           text : annotation.text,
@@ -43,8 +44,29 @@ annotate = {
   },
 
   updateAnnotation: function(annotation){
-    alert('hit this update')
+    $.ajax({
+      type: "PATCH",
+      url: apiHost + "/api/v1/annotations/" + annotation.annotationId,
+      data: {annotation: {annotation_id: annotation.id,
+                          location_id: annotation.locationId,
+                          text: annotation.text,
+                          image_url: annotation.src,
+                          category: annotation.category,
+                          height: annotation.shapes[0].geometry.height,
+                          width: annotation.shapes[0].geometry.width,
+                          x: annotation.shapes[0].geometry.x,
+                          y: annotation.shapes[0].geometry.y,
+                          shape: annotation.shapes[0].type}},
+      success: function(data){
+        annotation.annotationId = data.id
+        return data
+      },
+      error: function(data){
+        alert("Sorry, please try again.")
+      }
+    });
   },
+
   createAnnotation: function(annotation){
     $.ajax({
       type: "POST",
@@ -59,10 +81,11 @@ annotate = {
                           y: annotation.shapes[0].geometry.y,
                           shape: annotation.shapes[0].type}},
       success: function(data){
-        alert('saved!')
+        annotation.annotationId = data.id
+        return data
       },
       error: function(data){
-        alert("Sorry, we couldn't favorite this story for you right now. Please try again.")
+        alert("Sorry, please try again.")
       }
     });
   }
