@@ -3250,6 +3250,11 @@ $JSCompiler_prototypeAlias$$.$addField$ = function $$JSCompiler_prototypeAlias$$
 };
 $JSCompiler_prototypeAlias$$.open = function $$JSCompiler_prototypeAlias$$$open$($opt_annotation$$) {
   (this.$_current_annotation$ = this.$_original_annotation$ = $opt_annotation$$) && this.$_textarea$.$setContent$(String($opt_annotation$$.text));
+
+  // RESURFACE ADDITION
+  if($opt_annotation$$){
+    $('#annotation-category input[value=' + $opt_annotation$$.category + ']').prop('checked', true)
+  }
   $goog$style$showElement$$(this.element, $JSCompiler_alias_TRUE$$);
   this.$_textarea$.$getElement$().focus();
   $goog$array$forEach$$(this.$_extraFields$, function($field$$1$$) {
