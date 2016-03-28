@@ -18,8 +18,9 @@
 
   #lat-long{ text-align: center; color: white; }
   #annotate-image-container{
+    width: 50%; margin: 0 auto;
     #annotate-image{
-      width: 50%; margin: 0 auto; display: block;
+      width: 100%; display: block;
     }
 
   }

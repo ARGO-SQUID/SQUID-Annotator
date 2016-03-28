@@ -15,6 +15,10 @@ annotate = {
     $('#annotation-view-container').addClass('active')
     var annotateHtml = Mustache.to_html($('#annotate-location-template').html(), location)
     $('#annotation-view-container #inner-annotation-container').html(annotateHtml)
+    anno.makeAnnotatable(document.getElementById('annotate-image'));
+    anno.addHandler('onAnnotationCreated', function(annotation) {
+      console.log(annotation)
+    })
   },
 
   annotationViewMode: function(){
