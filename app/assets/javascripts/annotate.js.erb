@@ -15,22 +15,37 @@ annotate = {
     $('#annotation-view-container').addClass('active')
     var annotateHtml = Mustache.to_html($('#annotate-location-template').html(), location)
     $('#annotation-view-container #inner-annotation-container').html(annotateHtml)
+    anno.destroy()
     anno.makeAnnotatable(document.getElementById('annotate-image'));
-    // anno.addHandler('onAnnotationCreated', function(annotation) {
-    //   console.log(annotation)
-    // })
+    annotate.loadAnnotations(location)
   },
 
   annotationViewMode: function(){
     return $('#annotation-view-container').hasClass('active')
   },
 
+  loadAnnotations: function(location){
+    $.get(apiHost + "/api/v1/locations/" + location.id + "/annotations", function( data ) {
+      _.each(data, function(annotation){
+        oneAnnotation = {
+          src : annotation.image_url,
+          locationId: annotation.location_id,
+          text : annotation.text,
+          category: annotation.category,
+          shapes : [{
+            type : annotation.shape,
+            geometry : { x : annotation.x, y: annotation.y, width : annotation.width, height: annotation.height }
+          }]
+        }
+        anno.addAnnotation(oneAnnotation)
+      })
+    })
+  },
+
   updateAnnotation: function(annotation){
     alert('hit this update')
-    console.log(annotation)
   },
   createAnnotation: function(annotation){
-    console.log(annotation.shapes)
     $.ajax({
       type: "POST",
       url: apiHost + "/api/v1/annotations",
