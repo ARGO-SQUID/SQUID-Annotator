@@ -1988,11 +1988,13 @@ function $annotorious$shape$transform$$($shape$$5$$, $transformationFn$$) {
 function $annotorious$shape$hashCode$$($shape$$6$$) {
   return JSON.stringify($shape$$6$$.geometry)
 }
-;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $shape$$7$$) {
+//RESURFACE ADDITION
+;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $category$$44$$, $shape$$7$$) {
   this.src = $src$$21$$;
   this.text = $text$$10$$;
   this.shapes = [$shape$$7$$];
   this.context = document.URL
+  this.category = $category$$44$$
 }
 ;function $annotorious$mediatypes$Module$$() {
 }
@@ -3185,7 +3187,8 @@ function $annotorious$templates$popup$$() {
   return'<div class="annotorious-popup top-left" style="position:absolute;z-index:1"><div class="annotorious-popup-buttons"><a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a><a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a></div><span class="annotorious-popup-text"></span></div>'
 }
 function $annotorious$templates$editform$$() {
-  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
+// RESURFACE ADDITION
+  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form id="annotation-category">  <input type="radio" name="a-category" value="pothole" checked> Pothole<br><input type="radio" name="a-category" value="crack"> Crack<br><input type="radio" name="a-category" value="other"> Other</form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
 }
 ;function $annotorious$Editor$$($annotator$$25$$) {
   function $opt_callback$$inline_691$$() {
@@ -3265,12 +3268,27 @@ $JSCompiler_prototypeAlias$$.setPosition = function $$JSCompiler_prototypeAlias$
 $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAlias$$$$getAnnotation$$() {
   var $htmlText$$inline_713_sanitized$$;
   $htmlText$$inline_713_sanitized$$ = this.$_textarea$.$getElement$().value;
+
+  //RESURFACE ADDITION: add annotationCategory to annotation
+  var $htmlText$$annotationCategory$$;
+  var radioForm = document.getElementById("annotation-category");
+  $htmlText$$annotationCategory$$ = radioForm.elements["a-category"].value
+
   var $stringBuffer$$inline_716$$ = new $goog$string$StringBuffer$$;
   (new $goog$string$html$HtmlParser$$).parse(new $goog$string$html$HtmlSanitizer$$($stringBuffer$$inline_716$$, function($url$$22$$) {
     return $url$$22$$
   }, $JSCompiler_alias_VOID$$), $htmlText$$inline_713_sanitized$$);
   $htmlText$$inline_713_sanitized$$ = $stringBuffer$$inline_716$$.toString();
-  this.$_current_annotation$ ? this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$ : this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, this.$_annotator$.$getActiveSelector$().getShape());
+  //RESURFACE ADDITION: add annotationCategory to annotation
+  if(this.$_current_annotation$){
+    this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$
+    this.$_current_annotation$.category = $htmlText$$annotationCategory$$
+  }
+  else{
+    alert('its a new annotatation!')
+    this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, $htmlText$$annotationCategory$$, this.$_annotator$.$getActiveSelector$().getShape());
+  }
+  console.log(this.$_current_annotation$)
   return this.$_current_annotation$
 };
 $annotorious$Editor$$.prototype.addField = $annotorious$Editor$$.prototype.$addField$;
