@@ -3189,7 +3189,7 @@ function $annotorious$templates$popup$$() {
 }
 function $annotorious$templates$editform$$() {
 // RESURFACE ADDITION
-  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form id="annotation-category">  <input type="radio" name="a-category" value="pothole"> Pothole<br><input type="radio" name="a-category" value="crack"> Crack<br><input type="radio" name="a-category" value="other"> Other</form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
+  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form id="annotation-category">  <input type="radio" name="a-category" value="pothole"> Pothole<br><input type="radio" name="a-category" value="crack"> Crack<br><input type="radio" name="a-category" value="hardware"> Hardware<input type="radio" name="a-category" value="other"> Other</form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
 }
 ;function $annotorious$Editor$$($annotator$$25$$) {
   function $opt_callback$$inline_691$$() {
