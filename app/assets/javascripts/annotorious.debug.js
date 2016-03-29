@@ -3185,11 +3185,11 @@ function $soy$esc$$0$0REPLACER_FOR_ESCAPE_HTML__AND__NORMALIZE_HTML__AND__ESCAPE
 }
 var $soy$esc$$0$0MATCHER_FOR_ESCAPE_HTML_$$ = /[\x00\x22\x26\x27\x3c\x3e]/g;
 function $annotorious$templates$popup$$() {
-  return'<div class="annotorious-popup top-left" style="position:absolute;z-index:1"><div class="annotorious-popup-buttons"><a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a><a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a></div><span class="annotorious-popup-text"></span></div>'
+  return'<div class="annotorious-popup top-left" style="position:absolute;z-index:1"><span class="annotorious-popup-text"></span><div class="annotorious-popup-buttons"><a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a><a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a></div></div>'
 }
 function $annotorious$templates$editform$$() {
 // RESURFACE ADDITION
-  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form id="annotation-category">  <input type="radio" name="a-category" value="pothole" checked> Pothole<br><input type="radio" name="a-category" value="crack"> Crack<br><input type="radio" name="a-category" value="other"> Other</form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
+  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form id="annotation-category">  <input type="radio" name="a-category" value="pothole"> Pothole<br><input type="radio" name="a-category" value="crack"> Crack<br><input type="radio" name="a-category" value="other"> Other</form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
 }
 ;function $annotorious$Editor$$($annotator$$25$$) {
   function $opt_callback$$inline_691$$() {
@@ -3444,13 +3444,7 @@ $JSCompiler_prototypeAlias$$.setPosition = function $$JSCompiler_prototypeAlias$
 $JSCompiler_prototypeAlias$$.setAnnotation = function $$JSCompiler_prototypeAlias$$$setAnnotation$($annotation$$10$$) {
   this.$_currentAnnotation$ = $annotation$$10$$;
   // RESURFACE ADDITION
-  if ($annotation$$10$$.text.length > 0 || $annotation$$10$$.category.length > 0){
-    this.$_text$.innerHTML = $annotation$$10$$.category + ": " + $annotation$$10$$.text
-  }
-  else{
-    this.$_text$.innerHTML = '<span class="annotorious-popup-empty">No comment</span>'
-  }
-  // this.$_text$.innerHTML = $annotation$$10$$.text ? $annotation$$10$$.text.replace(/\n/g, "<br/>") : '<span class="annotorious-popup-empty">No comment</span>';
+  this.$_text$.innerHTML = "<span class='category-text'>" + $annotation$$10$$.category + "</span><span class='note-text'>" + $annotation$$10$$.text + "</span>"
 
   "editable" in $annotation$$10$$ && $annotation$$10$$.editable == $JSCompiler_alias_FALSE$$ ? $goog$style$showElement$$(this.$_buttons$, $JSCompiler_alias_FALSE$$) : $goog$style$showElement$$(this.$_buttons$, $JSCompiler_alias_TRUE$$);
   $goog$array$forEach$$(this.$_extraFields$, function($field$$3$$) {

@@ -1,11 +1,11 @@
 keypress = {
 
   init: function(){
-    $(document).keydown(function(e) {
-      e.preventDefault();
-      keypress.routeKeypress(e.which);
-      return false
-    });
+    // $(document).keydown(function(e) {
+    //   e.preventDefault();
+    //   keypress.routeKeypress(e.which);
+    //   return false
+    // });
   },
 
   routeKeypress: function(keypressId){

@@ -2,7 +2,7 @@ html, body { height:100%; }
 body {margin: 0; padding: 0;}
 
 #map-container * {font-family: 'Arimo', sans-serif;}
-h1,h2,h3, input, p, textarea {font-family: 'Arimo', sans-serif;}
+h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
 
 #map-container {
   width: 100%; height:100%; position: relative;
