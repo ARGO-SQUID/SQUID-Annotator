@@ -3185,7 +3185,13 @@ function $soy$esc$$0$0REPLACER_FOR_ESCAPE_HTML__AND__NORMALIZE_HTML__AND__ESCAPE
 }
 var $soy$esc$$0$0MATCHER_FOR_ESCAPE_HTML_$$ = /[\x00\x22\x26\x27\x3c\x3e]/g;
 function $annotorious$templates$popup$$() {
-  return'<div class="annotorious-popup top-left" style="position:absolute;z-index:1"><span class="annotorious-popup-text"></span><div class="annotorious-popup-buttons"><a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a><a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a></div></div>'
+  var popup = '<div class="annotorious-popup top-left" style="position:absolute;z-index:1">'
+  popup += '<span class="annotorious-popup-text"></span>'
+  popup += '<div class="annotorious-popup-buttons">'
+  popup += '<a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a>'
+  popup += '<a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a>'
+  popup += '</div></div>'
+  return popup
 }
 function $annotorious$templates$editform$$() {
 // RESURFACE ADDITION
@@ -3266,7 +3272,7 @@ $JSCompiler_prototypeAlias$$.open = function $$JSCompiler_prototypeAlias$$$open$
   (this.$_current_annotation$ = this.$_original_annotation$ = $opt_annotation$$) && this.$_textarea$.$setContent$(String($opt_annotation$$.text));
 
   // RESURFACE ADDITION
-  if($opt_annotation$$){
+  if($opt_annotation$$ && $opt_annotation$$.category){
     $('#annotation-category input[value=' + $opt_annotation$$.category + ']').prop('checked', true)
   }
   $goog$style$showElement$$(this.element, $JSCompiler_alias_TRUE$$);
@@ -3398,7 +3404,11 @@ function $annotorious$Popup$$($annotator$$27$$) {
     $goog$dom$classes$remove$$($btnDelete$$, "annotorious-popup-button-active")
   });
   $goog$events$listen$$($btnDelete$$, "click", function() {
-    $annotator$$27$$.fireEvent("beforeAnnotationRemoved", $self$$9$$.$_currentAnnotation$) || ($goog$style$setOpacity$$($self$$9$$.element, 0), $goog$style$setStyle$$($self$$9$$.element, "pointer-events", "none"), $annotator$$27$$.$removeAnnotation$($self$$9$$.$_currentAnnotation$), $annotator$$27$$.fireEvent("onAnnotationRemoved", $self$$9$$.$_currentAnnotation$))
+    var confirmed = confirm("Are you sure you'd like to delete this annotation? This cannot be undone.")
+    if (confirmed == true){
+      annotate.deleteAnnotation($self$$9$$.$_currentAnnotation$.annotationId)
+      $annotator$$27$$.fireEvent("beforeAnnotationRemoved", $self$$9$$.$_currentAnnotation$) || ($goog$style$setOpacity$$($self$$9$$.element, 0), $goog$style$setStyle$$($self$$9$$.element, "pointer-events", "none"), $annotator$$27$$.$removeAnnotation$($self$$9$$.$_currentAnnotation$), $annotator$$27$$.fireEvent("onAnnotationRemoved", $self$$9$$.$_currentAnnotation$))
+    }
   });
   $annotorious$events$ui$hasMouse$$ && ($goog$events$listen$$(this.element, "mouseover", function() {
     window.clearTimeout($self$$9$$.$_buttonHideTimer$);

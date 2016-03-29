@@ -88,6 +88,18 @@ annotate = {
         alert("Sorry, please try again.")
       }
     });
+  },
+  deleteAnnotation: function(annotationId){
+    $.ajax({
+      type: "DELETE",
+      url: apiHost + "/api/v1/annotations/" + annotationId,
+      success: function(data){
+        return data
+      },
+      error: function(data){
+        alert("Sorry, we couldn't delete that annotation.  Please try again.")
+      }
+    });
   }
 
 }
