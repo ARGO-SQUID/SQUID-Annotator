@@ -12,23 +12,45 @@ h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
     width: 100%; height: 100%;
     left: 0; top: 0;
     border-left: 1px solid black;
+    -webkit-transition: height .2s, -webkit-transform .2s;
+    transition: height .2s, transform .2s;
   }
   #street-view-container {
     width: 100%; height: 0%;
     position: absolute; bottom: 0px; left: 0px;  background-color: white;
     border-right: 1px solid #D1D1D1; overflow: hidden;
+    -webkit-transition: height .2s, -webkit-transform .2s;
+    transition: height .2s, transform .2s;
+    #street-view-argo-logo {
+      position: absolute; bottom: 15px; right: 15px; height: 50px;
+    }
   }
 }
 
 #map-container.street-view-on {
   #map-canvas {
-    height: 50%;
-    -webkit-transition: height .2s, -webkit-transform .2s;
-    transition: height .2s, transform .2s;
+    height: 40%;
   }
   #street-view-container {
-    height: 50%; border-top: 1px solid black;
-    -webkit-transition: height .2s, -webkit-transform .2s;
-    transition: height .2s, transform .2s;
+    height: 60%; border-top: 1px solid black;
+  }
+  #map-overlay {
+    opacity: 0;
+  }
+}
+
+
+#map-overlay {
+  width: 200px; border-radius: 6px;
+  display: block; position: absolute; z-index: 1;
+  background-color: rgba(153,204,255,.9);
+  top: 20px; left: 20px; width: 250px;
+  padding: 12px; opacity: 1;
+  -webkit-transition: opacity .4s, -webkit-transform .4s;
+  transition: opacity .4s, transform .4s;
+
+  #argo-logo{width: 70%; margin: 0 auto; display: block;}
+  #title {
+    margin: 12px 0; font-size: 22px; text-align: center;
   }
 }

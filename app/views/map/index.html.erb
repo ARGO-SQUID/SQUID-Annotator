@@ -1,6 +1,6 @@
 <div id="map-container">
-
   <div id="map-canvas"></div>
+  <%= render partial: "map/map_overlay" %>
 
   <div id="street-view-container">
     <div id="street-view-inner">
@@ -14,12 +14,10 @@
         <a href="#" class="carousel-arrow" id="carousel-left">&lsaquo;</a>
         <a href="#" class="carousel-arrow" id="carousel-right">&rsaquo;</a>
 
-        <div id="street-carousel-container">
-
-        </div>
+        <div id="street-carousel-container"></div>
 
         <a href="#" id="launch-annotate">Annotate</a>
-
+        <%= image_tag "argo_alt.png", id: "street-view-argo-logo" %>
       </div>
 
     </div>
