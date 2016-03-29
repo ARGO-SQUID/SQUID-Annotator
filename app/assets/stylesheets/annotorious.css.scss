@@ -198,6 +198,7 @@
   -moz-box-shadow:0px 5px 15px #111;
   -webkit-box-shadow:0px 5px 15px #111;
   box-shadow:0px 5px 15px #111;
+  width: 200px!important;
 }
 
 .annotorious-editor-text {
@@ -206,8 +207,8 @@
   border-color:#ccc;
   line-height: normal;
   background-color:#fff;
-  width:240px;
-  height:50px;
+  width:100%;
+  height:50px!important;
   outline:none;
   font-size:11px;
   padding:4px;
@@ -256,6 +257,24 @@
   font-size:12px;
 }
 
+
+// category fields
+
+#annotation-category label{
+  float:left;
+  width:85px;
+  margin:4px;
+  background-color:#EFEFEF;
+  border-radius:4px;
+  border:1px solid #D0D0D0;
+  overflow:auto;
+
+  span {
+    text-align:center; font-size: 12px; padding:8px 0px; display:block;
+  }
+  input { display: none;}
+  input:checked + span { background-color:#404040; color:#F7F7F7;}
+}
 /** OpenLayers module **/
 .annotorious-ol-boxmarker-outer {
   border:1px solid #000;
