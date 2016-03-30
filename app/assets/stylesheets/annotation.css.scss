@@ -7,9 +7,19 @@
 
   &.active{ display: block; }
 
+  // #close-annotation{
+  //   position: absolute; top: 15px; right: 15px;
+  //   color: white; text-decoration: none; font-size: 30px; line-height: 30px;
+  // }
+
   #close-annotation{
-    position: absolute; top: 15px; right: 15px;
-    color: white; text-decoration: none; font-size: 30px; line-height: 30px;
+    width: 75px; position: absolute; top: 8px; right: 8px;
+    padding: 8px; border-radius: 6px;
+    font-size: 28px; color: black; text-decoration: none;
+    #ca-text {text-align: center; display: block;}
+    .keyboard {width: 45%; display: inline-block; vertical-align: middle;}
+    .key {width: 40%; display: inline-block;vertical-align: middle}
+    &:hover, &.hover-state {background-color: rgba(255,255,255,0.38);}
   }
 
   #annotation-title{

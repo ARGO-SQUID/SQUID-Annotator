@@ -1,5 +1,10 @@
 <div id="annotation-view-container">
-  <a href="#" id="close-annotation">&times;</a>
+  <a href="#" id="close-annotation">
+    <span id="ca-text">&times;</span>
+    <%= image_tag "keyboard_esc.png", class: "keyboard" %>
+    <%= image_tag "key_esc.png", class: "key" %>
+  </a>
+
   <h1 id="annotation-title">Annotate A Street Image</h1>
 
   <div id="inner-annotation-container"></div>
