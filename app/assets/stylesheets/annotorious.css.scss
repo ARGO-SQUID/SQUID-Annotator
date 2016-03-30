@@ -23,6 +23,10 @@
   opacity:0.4;
 }
 
+.annotorious-item:hover{
+  cursor: crosshair;
+}
+
 /** Hint/help popup **/
 
 .annotorious-hint-msg {
