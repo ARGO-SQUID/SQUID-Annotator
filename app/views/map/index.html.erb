@@ -3,7 +3,11 @@
   <%= render partial: "map/map_overlay" %>
 
   <div id="street-view-container">
-      <a href="#" id="close-street-view">&times;</a>
+      <a href="#" id="close-street-view">
+        <span id="csv-text">&times;</span>
+        <%= image_tag "keyboard_esc.png", class: "keyboard" %>
+        <%= image_tag "key_esc.png", class: "key" %>
+      </a>
       <a href="#" class="carousel-arrow" id="carousel-left">
         <span class="arrow">&lsaquo;</span>
         <span class="text">SCROLL LEFT</span>

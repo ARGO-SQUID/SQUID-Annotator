@@ -41,6 +41,10 @@ keypress = {
     }
     else if(keypressId == 27){
       streetView.closeStreetView()
+      $('#close-street-view').addClass('hover-state')
+      setTimeout(function(){
+        $('#close-street-view').removeClass('hover-state')
+      }, 100)
       return true
     }
     else if(keypressId == 32){

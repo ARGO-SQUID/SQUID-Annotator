@@ -1,8 +1,13 @@
 #street-view-container{
   position: relative;
   #close-street-view{
-    position: absolute; top: 8px; right: 8px;
+    width: 75px; position: absolute; top: 8px; right: 8px;
+    padding: 8px; border-radius: 6px;
     font-size: 28px; color: black; text-decoration: none;
+    #csv-text {text-align: center; display: block;}
+    .keyboard {width: 45%; display: inline-block; vertical-align: middle;}
+    .key {width: 40%; display: inline-block;vertical-align: middle}
+    &:hover, &.hover-state {background-color: rgba(0,122,255,0.38);}
   }
 
   .carousel-arrow{
@@ -10,7 +15,7 @@
     text-decoration: none; font-size: 40px;
     width: 100px; padding: 8px; border-radius: 6px;
     span.arrow {font-size: 40px; display: block; text-align: center; width: 12px; margin: 0 auto;}
-    span.text {font-size: 11px; display: block; text-align: center;}
+    span.text {font-size: 13px; display: block; text-align: center;}
     .keyboard {width: 45%; display: inline-block; vertical-align: middle;}
     .key {width: 40%; display: inline-block;vertical-align: middle}
     &:hover, &.hover-state {background-color: rgba(0,122,255,0.38);}
