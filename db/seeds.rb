@@ -20,6 +20,7 @@ data.group_by{|s|s["street_name"]}.each do |street_name, street_locations|
   end
 end
 
+Street.all.each(&:update_average_bumpiness_data)
 
 # s1 = Street.create(
 #   street_name: "Harrison St",

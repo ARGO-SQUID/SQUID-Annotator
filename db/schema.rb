@@ -45,8 +45,9 @@ ActiveRecord::Schema.define(version: 20160308135148) do
 
   create_table "streets", force: :cascade do |t|
     t.string   "street_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.float    "average_bumpiness"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
   end
 
 end
