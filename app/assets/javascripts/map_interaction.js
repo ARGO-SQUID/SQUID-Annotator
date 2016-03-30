@@ -26,7 +26,7 @@ mapInteraction = {
 
   zoomListener: function() {
     google.maps.event.addListener(map, 'zoom_changed', function() {
-      if (map.getZoom() < 10) map.setZoom(10);
+      if (map.getZoom() < 14) map.setZoom(14);
 
       var strokeWeightLevel = mapInteraction.streetThicknessForZoom()
       _.each(allStreets, function(street){
@@ -37,9 +37,8 @@ mapInteraction = {
 
   streetThicknessForZoom: function(){
     var z = map.getZoom()
-    if(z > 12){ return 20 }
-    else if(z > 6){ return 10 }
-    else {return 5 }
+    return ({14: 3, 15: 5, 16: 7, 17: 10,
+             18: 12, 19: 23, 20: 29, 21: 34})[z]
   }
 
 }
