@@ -40,11 +40,12 @@ mapInitializer = {
     var streetCoordinates = _.map(streetData['locations'], function(location){
       return {lat: location['lat'], lng: location['long']}
     });
-
     var streetPath = new google.maps.Polyline({
       path: streetCoordinates,
       geodesic: true,
-      strokeColor: '#FF0000', strokeOpacity: 0.75, strokeWeight: 20,
+      strokeColor: mapInitializer.colorForStreet(streetData.average_bumpiness),
+      strokeOpacity: 0.75,
+      strokeWeight: 20,
       locations: streetData['locations'],
       street_name: streetData['street_name']
     });
@@ -132,5 +133,17 @@ mapInitializer = {
     return _.find(selectedStreetLocationMarkers, function(marker){
       return marker.id == id;
     });
+  },
+
+  colorForStreet: function(average_bumpiness){
+    if(average_bumpiness < 50){
+      return '#00cc00'
+    }
+    else if (average_bumpiness < 100) {
+      return '#f0ff00'
+    }
+    else{
+      return '#FF0000'
+    }
   }
 }
