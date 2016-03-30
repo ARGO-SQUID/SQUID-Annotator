@@ -3324,21 +3324,21 @@ $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAl
 $annotorious$Editor$$.prototype.addField = $annotorious$Editor$$.prototype.$addField$;
 $annotorious$Editor$$.prototype.getAnnotation = $annotorious$Editor$$.prototype.$getAnnotation$;
 function $annotorious$Hint$$($annotator$$26$$, $parent$$24$$, $opt_msg$$1$$) {
-  var $self$$6$$ = this;
-  $opt_msg$$1$$ || ($opt_msg$$1$$ = "Click and Drag to Annotate");
-  this.element = $goog$soy$renderAsElement$$($annotorious$templates$image$hint$$, {$msg$:$opt_msg$$1$$});
-  this.$_annotator$ = $annotator$$26$$;
-  this.$_message$ = $query$$inline_159$$(".annotorious-hint-msg", this.element)[0];
-  this.$_icon$ = $query$$inline_159$$(".annotorious-hint-icon", this.element)[0];
-  this.$_overItemHandler$ = function $this$$_overItemHandler$$() {
-    $self$$6$$.show()
-  };
-  this.$_outOfItemHandler$ = function $this$$_outOfItemHandler$$() {
-    $JSCompiler_StaticMethods_hide$$($self$$6$$)
-  };
-  this.$_attachListeners$();
-  $JSCompiler_StaticMethods_hide$$(this);
-  $parent$$24$$.appendChild(this.element)
+  // var $self$$6$$ = this;
+  // $opt_msg$$1$$ || ($opt_msg$$1$$ = "Click and Drag to Annotate");
+  // this.element = $goog$soy$renderAsElement$$($annotorious$templates$image$hint$$, {$msg$:$opt_msg$$1$$});
+  // this.$_annotator$ = $annotator$$26$$;
+  // this.$_message$ = $query$$inline_159$$(".annotorious-hint-msg", this.element)[0];
+  // this.$_icon$ = $query$$inline_159$$(".annotorious-hint-icon", this.element)[0];
+  // this.$_overItemHandler$ = function $this$$_overItemHandler$$() {
+  //   $self$$6$$.show()
+  // };
+  // this.$_outOfItemHandler$ = function $this$$_outOfItemHandler$$() {
+  //   $JSCompiler_StaticMethods_hide$$($self$$6$$)
+  // };
+  // this.$_attachListeners$();
+  // $JSCompiler_StaticMethods_hide$$(this);
+  // $parent$$24$$.appendChild(this.element)
 }
 $annotorious$Hint$$.prototype.$_attachListeners$ = function $$annotorious$Hint$$$$$_attachListeners$$() {
   var $self$$7$$ = this;
