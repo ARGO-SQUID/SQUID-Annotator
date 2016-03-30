@@ -193,7 +193,7 @@
   padding:0px 0px 2px 0px;
   background-color:#f2f2f2;
   color:#000;
-  opacity:0.97;
+  opacity:1;
   border:1px solid #ccc;
   border-radius: 3px;
   -moz-border-radius: 3px;
@@ -221,6 +221,7 @@
   text-shadow:none;
   overflow-y:auto;
   display:block;
+  resize: none;
 }
 
 .annotorious-editor-button-container {
@@ -275,7 +276,7 @@
 #annotation-category label{
   float:left;
   width:88px;
-  margin:4px;
+  margin:5px;
   background-color:#EFEFEF;
   border:1px solid #D0D0D0;
   overflow:auto;

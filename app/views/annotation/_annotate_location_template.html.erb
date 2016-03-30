@@ -1,6 +1,14 @@
 <script id="annotate-location-template" type="x-tmpl-mustache">
   <div id="annotate-image-container" data-location-id="{{id}}">
     <img src={{image}} id="annotate-image" class="annotatable">
+    <h3 class="annotate-instructions">Click and drag to add an annotation</h3>
+    <h3 class="annotate-instructions">Hover over an annotation to view/edit</h3>
+  </div>
+
+  <div id="annotate-location-data">
+    <p class="location-title">Location ID {{id}}</p>
+    <p class="location-item">Bumpiness: {{bumpiness}}</p>
+    <p class="location-item">Latitude: {{lat}}</p>
+    <p class="location-item">Longitude: {{long}}</p>
   </div>
 </script>
-<!-- <h2 id="lat-long">ID: {{id}}.....{{lat}}, {{long}}</h2> -->

@@ -9,11 +9,11 @@
     position: absolute; top: 40%; color: black;
     text-decoration: none; font-size: 40px;
     width: 100px; padding: 8px; border-radius: 6px;
-    span.arrow {font-size: 40px; display: block; text-align: center;}
+    span.arrow {font-size: 40px; display: block; text-align: center; width: 12px; margin: 0 auto;}
     span.text {font-size: 11px; display: block; text-align: center;}
     .keyboard {width: 45%; display: inline-block; vertical-align: middle;}
     .key {width: 40%; display: inline-block;vertical-align: middle}
-    &:hover {background-color: rgba(0,122,255,0.38);}
+    &:hover, &.hover-state {background-color: rgba(0,122,255,0.38);}
   }
   #carousel-left { left: 15px;}
   #carousel-right { right: 15px;}
@@ -28,18 +28,23 @@
     #street-and-location-data{
       width: 175px; position: absolute;
       left: 0; top: 25px;
-      #launch-annotate {
-        padding: 10px 5px; display: block; text-align: center;
-        width: 90%; margin: 58px auto 14px auto; color: white; text-decoration: none;
-        background-color: #007aff;
-        &:hover {opacity: .9;}
-
-        .anno-text {text-align: center; display: block;}
-      }
-      #anno-key-imgs{
-        width: 100%; text-align: center;
-        .anno-keyboard {width: 40%; display: inline-block; vertical-align: middle;}
-        .anno-key {width: 40%; display: inline-block; vertical-align: middle;}
+      #launch-annotate{
+        margin-top: 58px; padding: 10px; border-radius: 6px; display: block; text-decoration: none;
+        .anno-text {
+          text-align: center; display: block;
+          background-color: #007aff; padding: 10px 5px; display: block; text-align: center;
+          width: 80%; margin: 0 auto 14px auto; color: white; text-decoration: none;
+        }
+        &:hover, &.hover-state {
+          opacity: .9;
+          .anno-text { opacity: .9;}
+        }
+        #anno-key-imgs{
+          width: 100%; text-align: center;
+          .anno-keyboard {width: 40%; display: inline-block; vertical-align: middle;}
+          .anno-key {width: 40%; display: inline-block; vertical-align: middle;}
+        }
+        &:hover, &.hover-state{ background-color: rgba(0,122,255,0.38); }
       }
 
       #street-name-title { font-weight: bold; margin: 0 0 5px 0;}
