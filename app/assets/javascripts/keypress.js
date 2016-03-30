@@ -35,7 +35,7 @@ keypress = {
       streetView.closeStreetView()
       return true
     }
-    else if(keypressId == 13){
+    else if(keypressId == 32){
       annotate.launchForLocation(selectedLocationMarker.location);
       return true
     }

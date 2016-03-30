@@ -44,21 +44,21 @@ streetView = {
 
   initializeForStreet: function(street){
     var streetHtml = Mustache.to_html($('#street-info-template').html(), street)
-    $('#street-view-inner-top #street-data').html(streetHtml)
+    $('#street-and-location-data #street-data').html(streetHtml)
 
     initialLocation = street.locations[0]
     restOfLocations = _.reject(street.locations, function(l) { return l == initialLocation; });
 
     var carouselHtml = Mustache.to_html($('#street-carousel-template').html(),
                         {locations: restOfLocations, initialLocation: initialLocation, initialLocationId: initialLocation.id})
-    $('#street-view-inner-bottom #street-carousel-container').html(carouselHtml)
+    $('#street-view-inner #street-carousel-container').html(carouselHtml)
     streetView.setLocation(initialLocation)
     streetView.moveToStreetView()
   },
 
   setLocation: function(location){
     var locationHtml = Mustache.to_html($('#location-info-template').html(), location)
-    $('#street-view-inner-top #location-data').html(locationHtml)
+    $('#street-and-location-data #location-data').html(locationHtml)
     mapInitializer.setSelectedLocationMarker(location.id)
     $('.street-location-carousel .location-img').removeClass('active')
     $('.street-location-carousel .location-img[data-id=' + location.id + ']').addClass('active')

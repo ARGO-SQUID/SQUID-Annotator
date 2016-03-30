@@ -3,24 +3,38 @@
   <%= render partial: "map/map_overlay" %>
 
   <div id="street-view-container">
-    <div id="street-view-inner">
-      <div id="street-view-inner-top">
-        <a href="#" id="close-street-view">&times;</a>
-        <div id="street-data"></div>
-        <div id="location-data"></div>
-      </div>
+      <a href="#" id="close-street-view">&times;</a>
+      <a href="#" class="carousel-arrow" id="carousel-left">
+        <span class="arrow">&lsaquo;</span>
+        <span class="text">SCROLL LEFT</span>
+        <%= image_tag "keyboard_left.png", class: "keyboard" %>
+        <%= image_tag "key_left.png", class: "key" %>
+      </a>
+      <a href="#" class="carousel-arrow" id="carousel-right">
+        <span class="arrow">&rsaquo;</span>
+        <span class="text">SCROLL RIGHT</span>
+        <%= image_tag "keyboard_right.png", class: "keyboard" %>
+        <%= image_tag "key_right.png", class: "key" %>
+      </a>
+      <%= image_tag "argo_alt.png", id: "street-view-argo-logo" %>
 
-      <div id="street-view-inner-bottom">
-        <a href="#" class="carousel-arrow" id="carousel-left">&lsaquo;</a>
-        <a href="#" class="carousel-arrow" id="carousel-right">&rsaquo;</a>
+      <div id="street-view-inner">
 
+        <div id="street-and-location-data">
+          <div id="street-data"></div>
+          <div id="location-data"></div>
+          <a href="#" id="launch-annotate">
+            <span class="anno-text">Annotate</span>
+          </a>
+          <div id="anno-key-imgs">
+            <%= image_tag "keyboard_space.png", class: "anno-keyboard" %>
+            <%= image_tag "space.png", class: "anno-key" %>
+          </div>
+        </div>
         <div id="street-carousel-container"></div>
 
-        <a href="#" id="launch-annotate">Annotate</a>
-        <%= image_tag "argo_alt.png", id: "street-view-argo-logo" %>
       </div>
 
-    </div>
   </div>
 
 </div>
