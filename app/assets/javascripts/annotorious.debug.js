@@ -3205,8 +3205,8 @@ function $annotorious$templates$editform$$() {
   editor += '</form>'
   editor += '<textarea class="annotorious-editor-text" placeholder="Add a Note..." tabindex="1"></textarea>'
   editor += '<div class="annotorious-editor-button-container">'
-  editor += '<a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a>'
   editor += '<a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a>'
+  editor += '<a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a>'
   editor += '</div></form></div>'
   return  editor
 }
