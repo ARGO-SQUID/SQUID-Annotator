@@ -64,6 +64,9 @@ mapInitializer = {
   },
 
   clearSelectedStreet: function(){
+    if(selectedStreet){
+      selectedStreet.setVisible(true)
+    }
     selectedStreet = null
     if(selectedStreetLocationMarkers){
       _.each(selectedStreetLocationMarkers, function(marker){
@@ -92,6 +95,7 @@ mapInitializer = {
     }
     mapInitializer.clearSelectedStreet();
     selectedStreet = streetPath
+    streetPath.setVisible(false)
     selectedStreetLocationMarkers = _.map(streetPath.locations, function(location){
       return mapInitializer.initStreetLocationMarker(location)
     })
