@@ -47,7 +47,13 @@ h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
   transition: opacity .4s, transform .4s;
 
   #argo-logo{width: 70%; margin: 0 auto; display: block;}
-  #title {
-    margin: 12px 0; font-size: 22px; text-align: center;
+  #title { margin: 12px 0; font-size: 22px; text-align: center; }
+  .subtitle {font-size: 15px;}
+  .instructions {
+    margin: 0; padding: 0; list-style-type: none; font-size: 13px;
+    li {
+      margin-bottom: 5px;
+      &:last-of-type {margin-bottom: 0;}
+    }
   }
 }
