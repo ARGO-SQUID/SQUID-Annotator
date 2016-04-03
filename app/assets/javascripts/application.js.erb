@@ -23,9 +23,11 @@
 
 
 $(document).ready(function() {
-  mapInitializer.init()
-  streetView.init()
-  annotate.init()
-  keypress.init()
-  mapInteraction.init()
+  if($('.admin-container').length == 0){
+    mapInitializer.init()
+    streetView.init()
+    annotate.init()
+    keypress.init()
+    mapInteraction.init()
+  }
 })
