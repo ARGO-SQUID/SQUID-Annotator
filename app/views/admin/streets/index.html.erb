@@ -1,0 +1,22 @@
+<div class="admin-container">
+  <h2 class="title">All Streets (<%= @streets.count %>)</h2>
+  <br><br>
+
+  <table>
+    <tr>
+      <th>Street Name</th>
+      <th>Avg Ride Qlty</th>
+      <th>Location Count</th>
+      <th>Annotated Location</th>
+    </tr>
+    <% @streets.each do |street| %>
+      <tr>
+        <td><%= link_to(street.street_name, admin_street_path(street)) %></td>
+        <td><%= street.average_bumpiness %></td>
+        <td><%= street.locations.count %></td>
+        <td><%= street.locations.with_annotations.count %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

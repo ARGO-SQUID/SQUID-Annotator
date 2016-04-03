@@ -1,0 +1,31 @@
+<div class="admin-container">
+  <h2 class="title">All Locations</h2>
+  <br><br>
+  <h2>Locations</h2>
+  <table>
+    <tr>
+      <th class="small"></th>
+      <th>Street</th>
+      <th>Lat</th>
+      <th>Long</th>
+      <th class="small">Order</th>
+      <th>Ride Quality Score</th>
+      <th class="small">Reading Device ID</th>
+      <th>Reading Time Stamp</th>
+      <th>Annotation Count</th>
+    </tr>
+    <% @locations.each do |location| %>
+      <tr>
+        <td><%= link_to "View", admin_location_path(location) %></td>
+        <td><%= link_to location.street.street_name, admin_street_path(location.street) %></td>
+        <td><%= location.lat %></td>
+        <td><%= location.long %></td>
+        <td><%= location.order %></td>
+        <td><%= location.bumpiness %></td>
+        <td><%= location.reading_device_id %></td>
+        <td><%= location.reading_timestamp %></td>
+        <td><%= location.annotations.count %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>

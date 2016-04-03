@@ -16,4 +16,16 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :welcome, only: [:index]
+    resources :streets, only: [:index, :show]
+    resources :locations, only: [:show, :destroy, :index] do
+      collection do
+        get :with_annotations
+      end
+    end
+  end
+  get "/admin" => "admin/welcome#index"
+
+
 end

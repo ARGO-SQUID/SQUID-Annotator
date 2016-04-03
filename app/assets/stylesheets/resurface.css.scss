@@ -57,3 +57,14 @@ h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
     }
   }
 }
+
+#notice-bar{
+  position: fixed; width: 100%; top: 0;
+  background-color: #ADD8E6; z-index: 5;
+  border-bottom: 1px solid gray; padding: 15px 0;
+  p { margin: 0; text-align: center; }
+  &.alert {background-color: #ff4d4d;}
+  #close-notice-bar{
+    position: absolute; top: 15px; right: 15px; color: black; text-decoration: none;
+  }
+}

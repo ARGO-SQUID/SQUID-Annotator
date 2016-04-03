@@ -1,0 +1,7 @@
+<div class="admin-container">
+  <h2 class="title">SQUID Street Annotator Admin</h2>
+  <br><br>
+  <h3><%= link_to "View All Streets (#{@street_count})", admin_streets_path %></h3>
+  <h3><%= link_to "View All Locations (#{@location_count})", admin_locations_path %></h3>
+  <h3><%= link_to "View All Annotated Locations (#{@annotated_location_count})", with_annotations_admin_locations_path %></h3>
+</div>

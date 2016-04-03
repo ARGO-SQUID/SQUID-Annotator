@@ -5,5 +5,6 @@ class Location < ActiveRecord::Base
   validates_presence_of :street_id, :lat, :long
 
   scope :light, -> { select('lat, long') }
+  scope :with_annotations, -> { select { |a| a.annotations.size > 0 } }
 
 end
