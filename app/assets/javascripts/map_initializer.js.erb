@@ -104,9 +104,9 @@ mapInitializer = {
 
   activePinImage: function(){
     return {url: "<%= image_path('inverse_pin.png')%>",
-            size: new google.maps.Size(18, 18),
+            size: new google.maps.Size(12, 12),
             origin: new google.maps.Point(0, 0),
-            anchor: new google.maps.Point(9, 9)}
+            anchor: new google.maps.Point(6,6)}
   },
 
   initStreetLocationMarker: function(location){
@@ -148,21 +148,21 @@ mapInitializer = {
   pinForLocation: function(bumpiness){
     if(bumpiness < 50){
       return {url: "<%= image_path('green_pin.png')%>",
-              size: new google.maps.Size(18, 18),
+              size: new google.maps.Size(12, 12),
               origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(9, 9)}
+              anchor: new google.maps.Point(6,6)}
     }
     else if (bumpiness < 100) {
       return {url: "<%= image_path('yellow_pin.png')%>",
-              size: new google.maps.Size(18, 18),
+              size: new google.maps.Size(12, 12),
               origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(9, 9)}
+              anchor: new google.maps.Point(6,6)}
     }
     else{
       return {url: "<%= image_path('red_pin.png')%>",
-              size: new google.maps.Size(18, 18),
+              size: new google.maps.Size(12, 12),
               origin: new google.maps.Point(0, 0),
-              anchor: new google.maps.Point(9, 9)}
+              anchor: new google.maps.Point(6,6)}
     }
   }
 
