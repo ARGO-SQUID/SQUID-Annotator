@@ -3,4 +3,7 @@ class Location < ActiveRecord::Base
   has_many :annotations
 
   validates_presence_of :street_id, :lat, :long
+
+  scope :light, -> { select('lat, long') }
+
 end

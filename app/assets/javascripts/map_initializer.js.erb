@@ -46,6 +46,7 @@ mapInitializer = {
       strokeColor: mapInitializer.colorForStreet(streetData.average_bumpiness),
       strokeOpacity: 0.8,
       strokeWeight: 7,
+      id: streetData['id'],
       locations: streetData['locations'],
       street_name: streetData['street_name'],
       average_bumpiness: streetData['average_bumpiness']
@@ -93,13 +94,15 @@ mapInitializer = {
     if(selectedStreet == streetPath){
       return
     }
-    mapInitializer.clearSelectedStreet();
-    selectedStreet = streetPath
-    streetPath.setVisible(false)
-    selectedStreetLocationMarkers = _.map(streetPath.locations, function(location){
-      return mapInitializer.initStreetLocationMarker(location)
+    $.get("/api/v1/streets/" + streetPath.id, function( data ) {
+      mapInitializer.clearSelectedStreet();
+      selectedStreet = streetPath
+      selectedStreetLocationMarkers = _.map(data, function(location){
+        return mapInitializer.initStreetLocationMarker(location)
+      })
+      streetPath.setVisible(false)
+      streetView.initializeForStreet(streetPath)
     })
-    streetView.initializeForStreet(streetPath)
   },
 
   activePinImage: function(){
@@ -115,6 +118,7 @@ mapInitializer = {
       map: map,
       id: location.id,
       location: location,
+      annotations: location.annotations,
       icon: mapInitializer.pinForLocation(location.bumpiness)
     });
     mapInitializer.setLocationMarkerListener(marker)

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :streets, only: [:index]
+      resources :streets, only: [:index, :show]
       resources :annotations, only: [:create, :update, :destroy]
       resources :locations, only: [] do
         member do

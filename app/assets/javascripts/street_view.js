@@ -46,8 +46,9 @@ streetView = {
     var streetHtml = Mustache.to_html($('#street-info-template').html(), street)
     $('#street-and-location-data #street-data').html(streetHtml)
 
-    initialLocation = street.locations[0]
-    restOfLocations = _.reject(street.locations, function(l) { return l == initialLocation; });
+    initialLocation = selectedStreetLocationMarkers[0].location
+    restOfLocations = _.reject(selectedStreetLocationMarkers, function(l) { return l.id == initialLocation.id; });
+    restOfLocations = _.map(restOfLocations, function(l){return l.location})
 
     var carouselHtml = Mustache.to_html($('#street-carousel-template').html(),
                         {locations: restOfLocations, initialLocation: initialLocation, initialLocationId: initialLocation.id})
