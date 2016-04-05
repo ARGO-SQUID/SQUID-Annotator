@@ -3,6 +3,16 @@
   <%= render partial: "map/map_overlay" %>
 
   <div id="street-view-container">
+    <div id="street-view-legend">
+      <%= image_tag "legend.png", id: "street-view-legend-img" %>
+      <ul id="street-view-legend-keys">
+        <li><50</li>
+        <li>100</li>
+        <li>150+</li>
+      </ul>
+      <p>Ride Quality Score</p>
+    </div>
+
       <a href="#" id="close-street-view">
         <span id="csv-text">&times;</span>
         <%= image_tag "keyboard_esc.png", class: "keyboard" %>

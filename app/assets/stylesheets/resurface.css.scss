@@ -52,9 +52,19 @@ h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
   .instructions {
     margin: 0; padding: 0; list-style-type: none; font-size: 13px;
     li {
-      margin-bottom: 5px;
+      margin-bottom: 10px; font-size: 15px;
       &:last-of-type {margin-bottom: 0;}
     }
+  }
+
+  #overlay-legend{
+    margin-top: 30px;
+    #legend-img { width: 80%; margin: 0 auto; display: block;}
+    #legend-keys { margin: 10px 0; padding: 0; list-style-type: none;}
+    #legend-keys li {
+      display: inline-block; width: 32%;text-align: center;
+    }
+    p {margin: 0; text-align: center;}
   }
 }
 

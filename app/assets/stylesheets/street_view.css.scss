@@ -1,5 +1,16 @@
 #street-view-container{
   position: relative;
+
+  #street-view-legend{
+    position: absolute; left: 10px; top: 15px; width: 150px;
+    #street-view-legend-img { width: 94%; margin: 0 auto; display: block;}
+    #street-view-legend-keys { margin: 6px 0; padding: 0; list-style-type: none;}
+    #street-view-legend-keys li {
+      display: inline-block; width: 31%; text-align: center;
+    }
+    p {margin: 0; text-align: center; font-weight: bold;}
+  }
+
   #close-street-view{
     width: 75px; position: absolute; top: 8px; right: 8px;
     padding: 8px; border-radius: 6px;

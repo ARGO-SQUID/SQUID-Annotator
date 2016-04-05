@@ -4,8 +4,18 @@
   <h3 class="subtitle">Decision support tool for<br> <%= link_to "Street Quality Identification Device", "http://www.argolabs.org/squid", target: "_blank" %></h3>
   <hr>
   <ul class='instructions'>
-    <li>Click on any street to reveal a point-map.</li>
-    <li>Each point corresponds to an image of the street.</li>
-    <li>Annotate individual images to highlight specific defects.</li>
+    <li>1. Click on any street to reveal a point-map.</li>
+    <li>2. Each point corresponds to an image of the street.</li>
+    <li>3. Annotate individual images to highlight specific defects.</li>
   </ul>
+
+  <div id="overlay-legend">
+    <%= image_tag "legend.png", id: "legend-img" %>
+    <ul id="legend-keys">
+      <li><50</li>
+      <li>100</li>
+      <li>150+</li>
+    </ul>
+    <p>Ride Quality Score</p>
+  </div>
 </div>
