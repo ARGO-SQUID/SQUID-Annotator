@@ -3325,7 +3325,7 @@ $annotorious$Editor$$.prototype.addField = $annotorious$Editor$$.prototype.$addF
 $annotorious$Editor$$.prototype.getAnnotation = $annotorious$Editor$$.prototype.$getAnnotation$;
 function $annotorious$Hint$$($annotator$$26$$, $parent$$24$$, $opt_msg$$1$$) {
   var $self$$6$$ = this;
-  $opt_msg$$1$$ || ($opt_msg$$1$$ = "Click and Drag to Annotate");
+  $opt_msg$$1$$ || ($opt_msg$$1$$ = "Click and Drag to Annotate Street Defects");
   this.element = $goog$soy$renderAsElement$$($annotorious$templates$image$hint$$, {$msg$:$opt_msg$$1$$});
   this.$_annotator$ = $annotator$$26$$;
   this.$_message$ = $query$$inline_159$$(".annotorious-hint-msg", this.element)[0];
