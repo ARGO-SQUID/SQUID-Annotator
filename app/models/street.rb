@@ -7,14 +7,15 @@ class Street < ActiveRecord::Base
   end
 
   def self.update_all_annotation_counts
-    all.each(&:update_location_count)
+    all.each(&:update_location_counts)
   end
 
   def update_average_bumpiness_data
     update_attribute(:average_bumpiness, locations.average(:bumpiness).to_f)
   end
 
-  def update_location_count
-    update_attribute(:location_count, locations.count )
+  def update_location_counts
+    update_attributes(location_count:locations.count,
+                      annotated_location_count: locations.with_annotations.count)
   end
 end
