@@ -78,13 +78,13 @@
         opacity:0;
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         filter: alpha(opacity=0);
-        width: 466.5px; height: 350px;
+        width: 500px;
         &.active{
           opacity:1;
           -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
           filter: alpha(opacity=1);
         }
-        img {width: 466.5px; height: 350px;}
+        img {width: 100%;}
       }
 
     }
