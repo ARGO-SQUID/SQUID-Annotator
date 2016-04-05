@@ -102,7 +102,7 @@ mapInitializer = {
     if(selectedStreet == streetPath){
       return
     }
-    $.get("/api/v1/streets/" + streetPath.id, function( data ) {
+    $.get("/api/v1/streets/" + streetPath.id + "/locations", function( data ) {
       mapInitializer.clearSelectedStreet();
       selectedStreet = streetPath
       selectedStreetLocationMarkers = _.map(data, function(location){
