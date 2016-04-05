@@ -45,7 +45,7 @@
       width: 175px; position: absolute;
       left: 0; top: 25px;
       #launch-annotate{
-        margin-top: 58px; padding: 10px; border-radius: 6px; display: block; text-decoration: none;
+        margin-top: 30px; padding: 10px; border-radius: 6px; display: block; text-decoration: none;
         .anno-text {
           text-align: center; display: block;
           background-color: #007aff; padding: 10px 5px; display: block; text-align: center;
@@ -63,12 +63,13 @@
         &:hover, &.hover-state{ background-color: rgba(0,122,255,0.38); }
       }
 
-      #street-name-title { font-weight: bold; margin: 0 0 5px 0;}
+      #street-name-title { font-weight: bold; margin: 0 0 5px 0; font-size: 22px;}
       #street-name { margin: 0 0 5px 0;}
 
-      #location-title { font-weight: bold; margin: 15px 0 5px 0;}
-      .location-item {margin: 0 0 5px 0; font-size: 12px;}
-
+      #location-data {margin-top: 15px;}
+      #location-title { font-weight: bold; margin: 0; font-size: 20px;}
+      .location-item {margin: 0 0 5px 0; font-size: 14px;}
+      .title {font-weight: bold;}
     }
 
     #street-carousel-container{

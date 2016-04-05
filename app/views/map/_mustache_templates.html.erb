@@ -1,14 +1,14 @@
 <script id="street-info-template" type="x-tmpl-mustache">
   <p id="street-name-title">Street:</p>
   <p id="street-name">{{street_name}}</p>
-  <p class="location-item">Average Ride Quality:<br>{{average_bumpiness}}</p>
+  <p class="location-item"><span class="title">Average Ride Quality:</span><br>{{average_bumpiness}}</p>
 </script>
 
 <script id="location-info-template" type="x-tmpl-mustache">
   <p id="location-title">Location:</p>
   <p class="location-item ll">{{lat}},<br>{{long}}</p>
-  <p class="location-item">Ride Quality:<br>{{bumpiness}}</p>
-  <p class="location-item">Measured On:<br>{{display_reading_timestamp}}</p>
+  <p class="location-item"><span class="title">Ride Quality:</span><br>{{bumpiness}}</p>
+  <p class="location-item"><span class="title">Measured On:</span><br>{{display_reading_timestamp}}</p>
 </script>
 
 <script id="street-carousel-template" type="x-tmpl-mustache">
