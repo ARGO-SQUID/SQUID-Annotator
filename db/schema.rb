@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160308135148) do
+ActiveRecord::Schema.define(version: 20160405171043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,7 @@ ActiveRecord::Schema.define(version: 20160308135148) do
     t.datetime "reading_timestamp"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "annotation_count"
   end
 
   create_table "streets", force: :cascade do |t|
@@ -48,6 +49,7 @@ ActiveRecord::Schema.define(version: 20160308135148) do
     t.float    "average_bumpiness"
     t.datetime "created_at",        null: false
     t.datetime "updated_at",        null: false
+    t.integer  "location_count"
   end
 
 end

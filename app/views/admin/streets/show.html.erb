@@ -4,7 +4,7 @@
   <h3>Name: <%= @street.street_name %></h3>
   <h3>Average Ride Quality: <%= @street.average_bumpiness %></h3>
   <br><br>
-  <h2>Locations</h2>
+  <h2><%= @street.location_count %> Locations</h2>
   <table>
     <tr>
       <th class="small"></th>
@@ -25,7 +25,7 @@
         <td><%= location.bumpiness %></td>
         <td><%= location.reading_device_id %></td>
         <td><%= location.reading_timestamp %></td>
-        <td><%= location.annotations.count %></td>
+        <td><%= location.annotation_count %></td>
       </tr>
     <% end %>
   </table>

@@ -8,13 +8,7 @@
   <p>Long: <%= @location.long %></p>
   <p>Reading Device ID: <%= @location.reading_device_id %></p>
   <p>Reading Timestamp: <%= @location.reading_timestamp %></p>
-  <h3>
-    <% if @location.annotations.any? %>
-      <%= pluralize( @location.annotations.count, "annotation") %>
-    <% else %>
-      No Annotations
-    <% end %>
-  </h3>
+  <h3><%= pluralize( @location.annotation_count, "annotation") %></h3>
   <%= link_to "Delete This Location", admin_location_path(@location), method: :delete, class: "admin-button",
     data: { confirm: "Are you sure you want to delete this location? This will delete all associated annotations and cannot be undone" } %>
 

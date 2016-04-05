@@ -7,4 +7,8 @@ class Location < ActiveRecord::Base
   scope :light, -> { select('lat, long') }
   scope :with_annotations, -> { select { |a| a.annotations.size > 0 } }
 
+  def update_annotation_count
+    update_attribute(:annotation_count, annotations.count )
+  end
+
 end

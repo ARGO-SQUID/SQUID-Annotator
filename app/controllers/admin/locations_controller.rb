@@ -16,6 +16,7 @@ class Admin::LocationsController < AdminController
     @location = Location.find(params['id'])
     @location.destroy
     if @location.destroyed?
+      @location.street.update_location_count
       flash[:notice] = "That location has been deleted"
       redirect_to admin_street_path(@location.street)
     else
