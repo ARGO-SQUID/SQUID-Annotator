@@ -49,18 +49,9 @@ annotate = {
     $.ajax({
       type: "PATCH",
       url: apiHost + "/api/v1/annotations/" + annotation.annotationId,
-      data: {annotation: {annotation_id: annotation.id,
-                          location_id: annotation.locationId,
-                          text: annotation.text,
-                          image_url: annotation.src,
-                          category: annotation.category,
-                          height: annotation.shapes[0].geometry.height,
-                          width: annotation.shapes[0].geometry.width,
-                          x: annotation.shapes[0].geometry.x,
-                          y: annotation.shapes[0].geometry.y,
-                          shape: annotation.shapes[0].type}},
+      data: {annotation: annotate.annotationObjectForDb(annotation)},
       success: function(data){
-        annotation.annotationId = data.id
+        mapInitializer.refreshselectedLocationMarker()
         return data
       },
       error: function(data){
@@ -73,17 +64,10 @@ annotate = {
     $.ajax({
       type: "POST",
       url: apiHost + "/api/v1/annotations",
-      data: {annotation: {location_id: annotation.locationId,
-                          text: annotation.text,
-                          image_url: annotation.src,
-                          category: annotation.category,
-                          height: annotation.shapes[0].geometry.height,
-                          width: annotation.shapes[0].geometry.width,
-                          x: annotation.shapes[0].geometry.x,
-                          y: annotation.shapes[0].geometry.y,
-                          shape: annotation.shapes[0].type}},
+      data: {annotation: annotate.annotationObjectForDb(annotation) },
       success: function(data){
         annotation.annotationId = data.id
+        mapInitializer.refreshselectedLocationMarker()
         return data
       },
       error: function(data){
@@ -96,12 +80,25 @@ annotate = {
       type: "DELETE",
       url: apiHost + "/api/v1/annotations/" + annotationId,
       success: function(data){
+        mapInitializer.refreshselectedLocationMarker()
         return data
       },
       error: function(data){
         alert("Sorry, we couldn't delete that annotation.  Please try again.")
       }
     });
+  },
+
+  annotationObjectForDb: function(annotation){
+    return {location_id: annotation.locationId,
+             text: annotation.text,
+             image_url: annotation.src,
+             category: annotation.category,
+             height: annotation.shapes[0].geometry.height,
+             width: annotation.shapes[0].geometry.width,
+             x: annotation.shapes[0].geometry.x,
+             y: annotation.shapes[0].geometry.y,
+             shape: annotation.shapes[0].type}
   }
 
 }

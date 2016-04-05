@@ -90,6 +90,14 @@ mapInitializer = {
     selectedLocationMarker.setIcon(mapInitializer.activePinImage())
   },
 
+  refreshselectedLocationMarker: function(){
+    if(selectedLocationMarker){
+      $.get(apiHost + "/api/v1/locations/" + selectedLocationMarker.id + "/annotations", function( data ) {
+        selectedLocationMarker.location.annotations = data
+      })
+    }
+  },
+
   initializeSelectedStreet: function(streetPath){
     if(selectedStreet == streetPath){
       return
@@ -118,7 +126,7 @@ mapInitializer = {
       map: map,
       id: location.id,
       location: location,
-      annotations: location.annotations,
+      // annotations: location.annotations,
       icon: mapInitializer.pinForLocation(location.bumpiness)
     });
     mapInitializer.setLocationMarkerListener(marker)
