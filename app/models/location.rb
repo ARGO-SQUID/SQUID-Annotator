@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
   belongs_to :street
-  has_many :annotations
+  has_many :annotations, dependent: :destroy
 
   validates_presence_of :street_id, :lat, :long
 
