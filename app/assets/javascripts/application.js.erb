@@ -13,7 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require annotate.js.erb
+//= require map_initializer.js.erb
+//= require street_view.js
+//= require annotorious.debug.js
+//= require keypress.js
+//= require map_interaction.js
+
 
 <% if Rails.env == 'development' %>
   apiHost = "http://localhost:3000/"

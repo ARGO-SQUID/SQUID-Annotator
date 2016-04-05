@@ -13,10 +13,14 @@
 <script id="street-carousel-template" type="x-tmpl-mustache">
   <div class="street-location-carousel" data-current="{{initialLocationId}}">
     {{#initialLocation}}
-      <img src="{{image}}" data-id="{{id}}" class="location-img active">
+      <div class="location-img-container active" data-id="{{id}}">
+        <img src="{{image}}" data-id="{{id}}" class="location-img active" id="location-img-{{id}}">
+      </div>
     {{/initialLocation}}
     {{#locations}}
-      <img src="{{image}}" data-id="{{id}}" class="location-img">
+      <div class="location-img-container" data-id="{{id}}">
+        <img src="{{image}}" data-id="{{id}}" class="location-img" id="location-img-{{id}}">
+      </div>
     {{/locations}}
   </div>
 </script>

@@ -9,14 +9,16 @@ annotate = {
   closeAnnotationView: function(){
     $('#annotation-view-container').removeClass('active')
     $('#annotation-view-container #inner-annotation-container').html("")
+    streetView.showStreetViewAnnotations(selectedLocationMarker.location)
   },
 
   launchForLocation: function(location){
     $('#annotation-view-container').addClass('active')
     var annotateHtml = Mustache.to_html($('#annotate-location-template').html(), location)
     $('#annotation-view-container #inner-annotation-container').html(annotateHtml)
-    anno.destroy()
+    anno.reset()
     anno.makeAnnotatable(document.getElementById('annotate-image'));
+    anno.showSelectionWidget()
     annotate.loadAnnotations(location)
   },
 

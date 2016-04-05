@@ -1,3 +1,10 @@
+// NOTE: This is the ORIGINAL Annotorious Javascript.
+// This file is NOT being launched in the application
+// To see changes in annotorious.debug.js, diff this file with that one
+// 4-5-16
+
+
+
 function $JSCompiler_alias_THROW$$($jscomp_throw_param$$) {
   throw $jscomp_throw_param$$;
 }
@@ -1988,14 +1995,11 @@ function $annotorious$shape$transform$$($shape$$5$$, $transformationFn$$) {
 function $annotorious$shape$hashCode$$($shape$$6$$) {
   return JSON.stringify($shape$$6$$.geometry)
 }
-//RESURFACE ADDITION
-;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $category$$44$$, $locationId$$55$$, $shape$$7$$) {
+;function $annotorious$Annotation$$($src$$21$$, $text$$10$$, $shape$$7$$) {
   this.src = $src$$21$$;
   this.text = $text$$10$$;
   this.shapes = [$shape$$7$$];
   this.context = document.URL
-  this.category = $category$$44$$
-  this.locationId = $locationId$$55$$
 }
 ;function $annotorious$mediatypes$Module$$() {
 }
@@ -3185,30 +3189,10 @@ function $soy$esc$$0$0REPLACER_FOR_ESCAPE_HTML__AND__NORMALIZE_HTML__AND__ESCAPE
 }
 var $soy$esc$$0$0MATCHER_FOR_ESCAPE_HTML_$$ = /[\x00\x22\x26\x27\x3c\x3e]/g;
 function $annotorious$templates$popup$$() {
-  var popup = '<div class="annotorious-popup top-left" style="position:absolute;z-index:1">'
-  popup += '<span class="annotorious-popup-text"></span>'
-  popup += '<div class="annotorious-popup-buttons">'
-  popup += '<a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a>'
-  popup += '<a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a>'
-  popup += '</div></div>'
-  return popup
+  return'<div class="annotorious-popup top-left" style="position:absolute;z-index:1"><div class="annotorious-popup-buttons"><a class="annotorious-popup-button annotorious-popup-button-edit" title="Edit" href="javascript:void(0);">EDIT</a><a class="annotorious-popup-button annotorious-popup-button-delete" title="Delete" href="javascript:void(0);">DELETE</a></div><span class="annotorious-popup-text"></span></div>'
 }
 function $annotorious$templates$editform$$() {
-// RESURFACE ADDITION
-  var editor = '<div class="annotorious-editor" style="position:absolute;z-index:1">'
-
-  editor += '<form id="annotation-category">'
-  editor += '<label><input type="radio" name="a-category" value="pothole"><span>Pothole</span></label>'
-  editor += '<label><input type="radio" name="a-category" value="crack"><span>Crack</span></label>'
-  editor += '<label><input type="radio" name="a-category" value="hardware"><span>Hardware</span></label>'
-  editor += '<label><input type="radio" name="a-category" value="other"><span>Other</span></label>'
-  editor += '</form>'
-  editor += '<textarea class="annotorious-editor-text" placeholder="Add a Note..." tabindex="1"></textarea>'
-  editor += '<div class="annotorious-editor-button-container">'
-  editor += '<a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a>'
-  editor += '<a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a>'
-  editor += '</div></form></div>'
-  return  editor
+  return'<div class="annotorious-editor" style="position:absolute;z-index:1"><form><textarea class="annotorious-editor-text" placeholder="Add a Comment..." tabindex="1"></textarea><div class="annotorious-editor-button-container"><a class="annotorious-editor-button annotorious-editor-button-cancel" href="javascript:void(0);" tabindex="3">Cancel</a><a class="annotorious-editor-button annotorious-editor-button-save" href="javascript:void(0);" tabindex="2">Save</a></div></form></div>'
 }
 ;function $annotorious$Editor$$($annotator$$25$$) {
   function $opt_callback$$inline_691$$() {
@@ -3270,11 +3254,6 @@ $JSCompiler_prototypeAlias$$.$addField$ = function $$JSCompiler_prototypeAlias$$
 };
 $JSCompiler_prototypeAlias$$.open = function $$JSCompiler_prototypeAlias$$$open$($opt_annotation$$) {
   (this.$_current_annotation$ = this.$_original_annotation$ = $opt_annotation$$) && this.$_textarea$.$setContent$(String($opt_annotation$$.text));
-
-  // RESURFACE ADDITION
-  if($opt_annotation$$ && $opt_annotation$$.category){
-    $('#annotation-category input[value=' + $opt_annotation$$.category + ']').prop('checked', true)
-  }
   $goog$style$showElement$$(this.element, $JSCompiler_alias_TRUE$$);
   this.$_textarea$.$getElement$().focus();
   $goog$array$forEach$$(this.$_extraFields$, function($field$$1$$) {
@@ -3293,32 +3272,12 @@ $JSCompiler_prototypeAlias$$.setPosition = function $$JSCompiler_prototypeAlias$
 $JSCompiler_prototypeAlias$$.$getAnnotation$ = function $$JSCompiler_prototypeAlias$$$$getAnnotation$$() {
   var $htmlText$$inline_713_sanitized$$;
   $htmlText$$inline_713_sanitized$$ = this.$_textarea$.$getElement$().value;
-
-  //RESURFACE ADDITION: add annotationCategory to annotation
-  var $htmlText$$annotationCategory$$;
-  var radioForm = document.getElementById("annotation-category");
-  $htmlText$$annotationCategory$$ = radioForm.elements["a-category"].value
-
-  //RESURFACE ADDITION: add locationId to annotation
-  $htmlText$$locationId$$  = $('#annotate-image-container').attr('data-location-id')
-
   var $stringBuffer$$inline_716$$ = new $goog$string$StringBuffer$$;
   (new $goog$string$html$HtmlParser$$).parse(new $goog$string$html$HtmlSanitizer$$($stringBuffer$$inline_716$$, function($url$$22$$) {
     return $url$$22$$
   }, $JSCompiler_alias_VOID$$), $htmlText$$inline_713_sanitized$$);
   $htmlText$$inline_713_sanitized$$ = $stringBuffer$$inline_716$$.toString();
-  //RESURFACE ADDITION: add annotationCategory to annotation
-  if(this.$_current_annotation$){
-    this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$
-    this.$_current_annotation$.category = $htmlText$$annotationCategory$$
-    this.$_current_annotation$.locationId = $htmlText$$locationId$$
-    annotate.updateAnnotation(this.$_current_annotation$)
-  }
-  else{
-    this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, $htmlText$$annotationCategory$$, $htmlText$$locationId$$, this.$_annotator$.$getActiveSelector$().getShape());
-    annotate.createAnnotation(this.$_current_annotation$)
-  }
-  console.log(this.$_current_annotation$)
+  this.$_current_annotation$ ? this.$_current_annotation$.text = $htmlText$$inline_713_sanitized$$ : this.$_current_annotation$ = new $annotorious$Annotation$$(this.$_item$.src, $htmlText$$inline_713_sanitized$$, this.$_annotator$.$getActiveSelector$().getShape());
   return this.$_current_annotation$
 };
 $annotorious$Editor$$.prototype.addField = $annotorious$Editor$$.prototype.$addField$;
@@ -3404,11 +3363,7 @@ function $annotorious$Popup$$($annotator$$27$$) {
     $goog$dom$classes$remove$$($btnDelete$$, "annotorious-popup-button-active")
   });
   $goog$events$listen$$($btnDelete$$, "click", function() {
-    var confirmed = confirm("Are you sure you'd like to delete this annotation? This cannot be undone.")
-    if (confirmed == true){
-      annotate.deleteAnnotation($self$$9$$.$_currentAnnotation$.annotationId)
-      $annotator$$27$$.fireEvent("beforeAnnotationRemoved", $self$$9$$.$_currentAnnotation$) || ($goog$style$setOpacity$$($self$$9$$.element, 0), $goog$style$setStyle$$($self$$9$$.element, "pointer-events", "none"), $annotator$$27$$.$removeAnnotation$($self$$9$$.$_currentAnnotation$), $annotator$$27$$.fireEvent("onAnnotationRemoved", $self$$9$$.$_currentAnnotation$))
-    }
+    $annotator$$27$$.fireEvent("beforeAnnotationRemoved", $self$$9$$.$_currentAnnotation$) || ($goog$style$setOpacity$$($self$$9$$.element, 0), $goog$style$setStyle$$($self$$9$$.element, "pointer-events", "none"), $annotator$$27$$.$removeAnnotation$($self$$9$$.$_currentAnnotation$), $annotator$$27$$.fireEvent("onAnnotationRemoved", $self$$9$$.$_currentAnnotation$))
   });
   $annotorious$events$ui$hasMouse$$ && ($goog$events$listen$$(this.element, "mouseover", function() {
     window.clearTimeout($self$$9$$.$_buttonHideTimer$);
@@ -3466,9 +3421,7 @@ $JSCompiler_prototypeAlias$$.setPosition = function $$JSCompiler_prototypeAlias$
 };
 $JSCompiler_prototypeAlias$$.setAnnotation = function $$JSCompiler_prototypeAlias$$$setAnnotation$($annotation$$10$$) {
   this.$_currentAnnotation$ = $annotation$$10$$;
-  // RESURFACE ADDITION
-  this.$_text$.innerHTML = "<span class='category-text'>" + $annotation$$10$$.category + "</span><span class='note-text'>" + $annotation$$10$$.text + "</span>"
-
+  this.$_text$.innerHTML = $annotation$$10$$.text ? $annotation$$10$$.text.replace(/\n/g, "<br/>") : '<span class="annotorious-popup-empty">No comment</span>';
   "editable" in $annotation$$10$$ && $annotation$$10$$.editable == $JSCompiler_alias_FALSE$$ ? $goog$style$showElement$$(this.$_buttons$, $JSCompiler_alias_FALSE$$) : $goog$style$showElement$$(this.$_buttons$, $JSCompiler_alias_TRUE$$);
   $goog$array$forEach$$(this.$_extraFields$, function($field$$3$$) {
     var $f$$46$$ = $field$$3$$.$fn$($annotation$$10$$);

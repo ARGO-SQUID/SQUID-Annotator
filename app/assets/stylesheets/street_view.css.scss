@@ -67,7 +67,8 @@
 
     .street-location-carousel{
       position:relative;
-      img {
+
+      .location-img-container{
         position:absolute;
         left:0;
         -webkit-transition: opacity .2s ease-in-out;
@@ -78,12 +79,14 @@
         -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
         filter: alpha(opacity=0);
         width: 466.5px; height: 350px;
+        &.active{
+          opacity:1;
+          -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+          filter: alpha(opacity=1);
+        }
+        img {width: 466.5px; height: 350px;}
       }
-      img.active {
-        opacity:1;
-        -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
-        filter: alpha(opacity=1);
-      }
+
     }
   }
 }
