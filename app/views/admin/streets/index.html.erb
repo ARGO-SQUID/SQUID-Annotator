@@ -14,7 +14,7 @@
         <td><%= link_to(street.street_name, admin_street_path(street)) %></td>
         <td><%= street.average_bumpiness %></td>
         <td><%= street.location_count %></td>
-        <td><%= street.locations.with_annotations.count %></td>
+        <td><%= street.annotated_location_count %></td>
       </tr>
     <% end %>
   </table>
