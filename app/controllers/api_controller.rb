@@ -1,6 +1,6 @@
 class ApiController < ApplicationController
 
-  WHITELIST = ["http://arcane-brushlands-86807.herokuapp.com/"]
+  WHITELIST = ["http://arcane-brushlands-86807.herokuapp.com/", "http://squidannotator.herokuapp.com/"]
 
   before_action :ensure_origin_whitelisted
 
