@@ -3271,16 +3271,20 @@ $JSCompiler_prototypeAlias$$.$addField$ = function $$JSCompiler_prototypeAlias$$
 $JSCompiler_prototypeAlias$$.open = function $$JSCompiler_prototypeAlias$$$open$($opt_annotation$$) {
   (this.$_current_annotation$ = this.$_original_annotation$ = $opt_annotation$$) && this.$_textarea$.$setContent$(String($opt_annotation$$.text));
 
-  // RESURFACE ADDITION
-  if($opt_annotation$$ && $opt_annotation$$.category){
-    $('#annotation-category input[value=' + $opt_annotation$$.category + ']').prop('checked', true)
-  }
   $goog$style$showElement$$(this.element, $JSCompiler_alias_TRUE$$);
   this.$_textarea$.$getElement$().focus();
   $goog$array$forEach$$(this.$_extraFields$, function($field$$1$$) {
     var $f$$45$$ = $field$$1$$.$fn$($opt_annotation$$);
     $goog$isString$$($f$$45$$) ? $field$$1$$.$el$.innerHTML = $f$$45$$ : $goog$dom$isElement$$($f$$45$$) && ($goog$dom$removeChildren$$($field$$1$$.$el$), $field$$1$$.$el$.appendChild($f$$45$$))
   });
+  // RESURFACE ADDITION
+  if($opt_annotation$$ && $opt_annotation$$.category){
+    $('#annotation-category input[value=' + $opt_annotation$$.category + ']').prop('checked', true)
+  }
+  else{
+    $('#annotation-category input').prop('checked', false)
+  }
+
   this.$_annotator$.fireEvent("onEditorShown", $opt_annotation$$)
 };
 $JSCompiler_prototypeAlias$$.close = function $$JSCompiler_prototypeAlias$$$close$() {
