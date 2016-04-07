@@ -64,7 +64,7 @@ streetView = {
     $('.street-location-carousel .location-img-container').removeClass('active')
     $('.street-location-carousel .location-img-container[data-id=' + location.id + ']').addClass('active')
     $('#street-carousel-container .street-location-carousel').attr('data-current', location.id)
-    streetView.showStreetViewAnnotations(location)
+    setTimeout(function (){ streetView.showStreetViewAnnotations(location) }, 100);
   },
 
   moveCarouselForward: function(){
