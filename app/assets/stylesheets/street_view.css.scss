@@ -1,6 +1,8 @@
 #street-view-container{
   position: relative;
 
+  #sv-mobile-msg {display: none;}
+
   #street-view-legend{
     position: absolute; left: 10px; top: 15px; width: 150px;
     #street-view-legend-img { width: 94%; margin: 0 auto; display: block;}
@@ -100,5 +102,28 @@
       }
 
     }
+  }
+}
+
+@media(max-width:970px){
+  #street-view-container{
+    #street-view-inner{
+      width: 380px;
+      #street-and-location-data { width: 140px;}
+      .street-location-carousel .location-img-container{
+        width: 230px; left: 0;
+      }
+    }
+  }
+}
+
+@media(max-width:720px){
+  #street-view-container{
+    #sv-mobile-msg {display: block; text-align: center;}
+    #street-view-inner{display: none;}
+    .carousel-arrow {display: none;}
+    #street-view-legend{ display: none;}
+    #close-street-view {display: none;}
+
   }
 }

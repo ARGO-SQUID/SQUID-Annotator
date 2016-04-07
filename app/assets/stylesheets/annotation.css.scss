@@ -45,3 +45,14 @@
 
   }
 }
+
+@media(max-width:780px){
+  #annotation-view-container{
+
+    #inner-annotation-container {
+      width: 450px;
+      #annotate-image-container {width: 300px;}
+      #annotate-location-data {width: 120px;}
+    }
+  }
+}
