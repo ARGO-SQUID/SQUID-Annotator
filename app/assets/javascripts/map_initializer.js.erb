@@ -33,6 +33,7 @@ mapInitializer = {
       allStreets = _.map(data, function(street){
         return mapInitializer.initializeStreet(street)
       });
+      $('#loading-overlay').remove()
     });
   },
 

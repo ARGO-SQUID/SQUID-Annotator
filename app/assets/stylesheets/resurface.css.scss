@@ -8,6 +8,11 @@ h1,h2,h3, input, p, textarea, span, input, * {font-family: 'Arimo', sans-serif;}
   width: 100%; height:100%; position: relative;
   border-top: 1px solid #D1D1D1; border-bottom: 1px solid #D1D1D1;
 
+  #loading-overlay{
+    position: fixed; width: 90px; left: 50%; margin: -45px 0 0 -45px; top: 50%;
+    img {width: 100%;}
+  }
+
   #map-canvas {
     width: 100%; height: 100%;
     left: 0; top: 0;
