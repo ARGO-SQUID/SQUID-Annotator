@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root 'map#index'
   resource :map, only: [:index]
+  get "/hoboken" => "map#hoboken"
+  get "/syracuse" => "map#syracuse"
+  get "/staten_island" => "map#staten_island"
 
 
   namespace :api do
