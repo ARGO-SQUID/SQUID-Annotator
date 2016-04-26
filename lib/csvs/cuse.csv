@@ -1,4 +1,4 @@
-reading_device_id,reading_timestamp,lat,lon,bumpiness,image,street_name
+reading_device_id,reading_timestamp,lat,long,bumpiness,image,street_name
 squid-1,1460816670,43.07157169,-76.10009011,243.27988,https://s3-us-west-2.amazonaws.com/argosquid/SYRACUSE/1460816670.4.jpg,201-299 Ashdale Ave
 squid-1,1460816670,43.07153362,-76.10008639,302.1682478,https://s3-us-west-2.amazonaws.com/argosquid/SYRACUSE/1460816669.6.jpg,201-299 Lamson St
 squid-1,1460816671,43.07161861,-76.10009469,209.2444742,https://s3-us-west-2.amazonaws.com/argosquid/SYRACUSE/1460816671.2.jpg,201-299 Lamson St
