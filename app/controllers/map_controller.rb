@@ -6,8 +6,8 @@ class MapController < ApplicationController
   end
 
   def syracuse
-    gon.init_lat = 43.042865
-    gon.init_long = -76.158173
+    gon.init_lat = 43.07365513
+    gon.init_long = -76.10774341
     render 'index'
   end
 
